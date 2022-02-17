@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class left_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class Right_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
 
     [SerializeField] private GameObject player;
@@ -16,10 +16,9 @@ public class left_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     void Update()
     {
         if (isTouch) {
-            player.transform.position -= moveNext * Time.deltaTime;
+            player.transform.Translate(moveNext * Time.deltaTime);
         }
     }
-
 
 
     public void OnPointerDown(PointerEventData eventData)

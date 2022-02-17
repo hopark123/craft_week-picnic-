@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class right_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class Left_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
 
     [SerializeField] private GameObject player;
     [SerializeField] private float movespeed;
 
+    private Rigidbody rigid;
     private bool isTouch = false;
-
     private Vector3 moveNext;
+
 
     void Update()
     {
         if (isTouch) {
-            player.transform.position += moveNext * Time.deltaTime;
+            player.transform.Translate(moveNext * Time.deltaTime);
         }
     }
 
@@ -25,7 +26,7 @@ public class right_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public void OnPointerDown(PointerEventData eventData)
     {
         isTouch = true;
-        moveNext = new Vector3(movespeed, 0, 0);
+        moveNext = new Vector3(-movespeed, 0, 0);
     }
 
     public void OnPointerUp(PointerEventData eventData)
