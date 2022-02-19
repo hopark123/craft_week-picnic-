@@ -9,12 +9,11 @@ public class Left_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     [SerializeField] private GameObject player;
     [SerializeField] private float movespeed;
 
-    private Rigidbody rigid;
     private bool isTouch = false;
     private Vector3 moveNext;
 
 
-    void Update()
+    void FixedUpdate()
     {
         if (isTouch) {
             player.transform.Translate(moveNext * Time.deltaTime);
