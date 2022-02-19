@@ -9,7 +9,7 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
-
+test
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
@@ -28,6 +28,7 @@
 # Visual Studio code
 .vscode/
 .vsconfig
+.DS_Store
 # Gradle cache directory
 .gradle/
 
