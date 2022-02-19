@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerGround : MonoBehaviour
 {
     private bool isplayerGround = false;
+    int a;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // collision vector 비교
         if (collision.gameObject.tag == "Ground")
         {
             isplayerGround = true;

@@ -14,7 +14,7 @@ public class Left_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     private Vector3 moveNext;
 
 
-    void Update()
+    void FixedUpdate()
     {
         if (isTouch) {
             player.transform.Translate(moveNext * Time.deltaTime);

@@ -14,7 +14,13 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float h = Input.GetAxisRaw("Horizontal") * Time.deltaTime;
-        rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
+        //float h = Input.GetAxisRaw("Horizontal");
+        if(Input.GetKeyDown(KeyCode.D))
+            rigid.AddForce(Vector2.right * speed);
+
+
+        //rigid.AddForce(Vector2.right * h);
+
+        //rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
     }
 }

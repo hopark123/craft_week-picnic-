@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.825, y: -3.26, z: 0}
+  m_LocalPosition: {x: 0.05, y: -3.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -584,6 +584,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 628182843}
+  - component: {fileID: 628182847}
+  - component: {fileID: 628182848}
   - component: {fileID: 628182842}
   - component: {fileID: 628182844}
   - component: {fileID: 628182845}
@@ -682,7 +684,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &628182845
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -721,6 +723,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca681d0b2ef64a4096044b51bdf44d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &628182847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628182841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca681d0b2ef64a4096044b51bdf44d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &628182848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628182841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d77e88f8fa04447972169fe93d21a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &857092270
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 628182841}
-  movespeed: 4
+  movespeed: 5
 --- !u!1 &1082135908
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 628182841}
-  jumppower: 10
+  jumppower: 6
 --- !u!1 &1110538634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,7 +1160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 628182841}
-  movespeed: 4
+  movespeed: 5
 --- !u!114 &1243554778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1376,7 +1403,7 @@ GameObject:
   - component: {fileID: 1419576643}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1442,7 +1469,7 @@ Transform:
   m_GameObject: {fileID: 1419576639}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.07, y: -5.1, z: 0}
-  m_LocalScale: {x: 30, y: 1, z: 1}
+  m_LocalScale: {x: 1000, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

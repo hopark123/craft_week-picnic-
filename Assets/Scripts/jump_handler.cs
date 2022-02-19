@@ -47,7 +47,7 @@ public class Jump_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     public void TryJump()
     {
-        if (doubleJump < 2)
+        if (doubleJump < 1)
         {
             rigid.velocity = Vector3.zero;
             //if (isJump)
@@ -55,8 +55,8 @@ public class Jump_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
             //    rigid.velocity = Vector3.zero;
             //}
             //player.transform.Translate(jumpNext * Time.deltaTime);
-            isJump = true;
             rigid.AddForce(jumpNext, ForceMode2D.Impulse);
+            isJump = true;
             ++doubleJump;
         }
 
