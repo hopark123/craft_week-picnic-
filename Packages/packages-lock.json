@@ -51,7 +51,7 @@
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
-      "depth": 0,
+      "depth": 1,
       "source": "builtin",
       "dependencies": {}
     },
@@ -69,7 +69,7 @@
     },
     "com.unity.2d.tilemap": {
       "version": "1.0.0",
-      "depth": 0,
+      "depth": 1,
       "source": "builtin",
       "dependencies": {}
     },
@@ -85,6 +85,8 @@
       },
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
+=======
     "com.unity.ads": {
       "version": "3.7.5",
       "depth": 0,
@@ -103,6 +105,7 @@
       },
       "url": "https://packages.unity.com"
     },
+>>>>>>> 29a77058c9567e4ec5c81a1cc7fd720d38e07ced
     "com.unity.burst": {
       "version": "1.6.4",
       "depth": 3,
@@ -263,6 +266,8 @@
       },
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
+=======
     "com.unity.xr.legacyinputhelpers": {
       "version": "2.1.8",
       "depth": 0,
@@ -273,6 +278,7 @@
       },
       "url": "https://packages.unity.com"
     },
+>>>>>>> 29a77058c9567e4ec5c81a1cc7fd720d38e07ced
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
