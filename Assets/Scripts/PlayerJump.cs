@@ -2,29 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGround : MonoBehaviour
+public class PlayerJump : MonoBehaviour
 {
-    private bool isplayerGround = false;
-    int a;
+    private bool isGround = false;
+    private int jumpcnt = 0;
 
+    // check player is ground //
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // collision vector 비교
         if (collision.gameObject.tag == "Ground")
         {
-            isplayerGround = true;
+            isGround = true;
+            jumpcnt = 0;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
-            isplayerGround = false;
+            isGround = false;
         }
     }
 
     public bool getGround()
     {
-        return (isplayerGround);
+        return (isGround);
     }
+
+    public void playerisjump()
+    {
+        ++jumpcnt;
+    }
+    public int getJumpcnt()
+    {
+        return (jumpcnt);
+    }
+
 }
