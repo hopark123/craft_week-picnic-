@@ -13,8 +13,11 @@ public class PlayerJump : MonoBehaviour
         // collision vector 비교
         if (collision.gameObject.tag == "Ground")
         {
-            isGround = true;
-            jumpcnt = 0;
+            if (this.transform.position.y > collision.transform.position.y)
+               {
+                isGround = true;
+                jumpcnt = 0;
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D collision)

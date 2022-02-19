@@ -9,6 +9,8 @@ public class PlayerMember : MonoBehaviour
 {
     private int membercnt = 0;
     [SerializeField] private Text text;
+    [SerializeField] private GameObject Enemy;
+
 
     void Start()
     {
@@ -27,9 +29,17 @@ public class PlayerMember : MonoBehaviour
             collision.GetComponent<Member>().memberId = membercnt;
             collision.GetComponent<Member>().TargetFind();
             collision.GetComponent<Member>().touch = true;
-
-            //Debug.Log("touch");
+            Enemy.GetComponent<Enemy>().EnermyFindTarget("Member" + membercnt.ToString());
         }
+    }
+    public void catchMember()
+    {
+        Debug.Log("catch");
+        membercnt--;
+        text.GetComponent<MemberCnt>().ShowMemberCnt(membercnt);
+        if (membercnt < 0)
+            Debug.Log("Game.Over");
+        Enemy.GetComponent<Enemy>().EnermyFindTarget("Member" + membercnt.ToString());
     }
 
     public int getMemberCnt()

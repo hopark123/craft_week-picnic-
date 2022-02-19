@@ -28,7 +28,12 @@ public class Member : MonoBehaviour
 
         if (heading.sqrMagnitude > 0.5f)
         {
-            transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * speed);
+            transform.position = Vector2.Lerp(transform.position, target.position, Time.deltaTime * speed);
+        }
+        else
+        {
+            Vector2 temp = new Vector2(transform.position.x, target.position.y);
+            transform.position = Vector2.Lerp(transform.position, temp, Time.deltaTime * speed);
         }
 
         //transform.LookAt(target);
