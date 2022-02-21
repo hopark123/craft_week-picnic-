@@ -17,6 +17,17 @@ public class Enemy : MonoBehaviour
         transform.Translate(new Vector2(1, 0) * Time.deltaTime* speed);
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //Debug.Log("cathc Target" + targetName + " ?" + collision.gameObject.tag);
+        if (collision.gameObject.tag == "Member" || collision.gameObject.tag == "player")
+        {
+            var heading = collision.transform.position - this.transform.position;
+            Debug.Log(heading.sqrMagnitude);
+            if (heading.sqrMagnitude < 10f)
+                player.GetComponent<PlayerMember>().catchMember();
+        }
+    }
 
     //private void Start()
     //{
@@ -48,15 +59,4 @@ public class Enemy : MonoBehaviour
     //        Destroy(GameObject.FindGameObjectWithTag(targetName).gameObject);
     //    }
     //}
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        //Debug.Log("cathc Target" + targetName + " ?" + collision.gameObject.tag);
-        if (collision.gameObject.tag == "Member" || collision.gameObject.tag == "player")
-        {
-            var heading = collision.transform.position - this.transform.position;
-            Debug.Log(heading.sqrMagnitude);
-            if (heading.sqrMagnitude < 10f)
-                player.GetComponent<PlayerMember>().catchMember();
-        }
-    }
 }
