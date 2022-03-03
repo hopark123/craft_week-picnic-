@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game_Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/suhong.unity
     guid: 641ecbbf0c8324a2f81dac783cb6b08b
+  - enabled: 1
+    path: Assets/Scenes/Main_Scene.unity
+    guid: 9960ecfef114f45ac8ecb0d1d926f23d
+  - enabled: 1
+    path: Assets/Scenes/HowToGame_Scene.unity
+    guid: 9bac3e8999e774fb4a471e9c315daeaf
   m_configObjects: {}
