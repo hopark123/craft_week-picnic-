@@ -13,6 +13,7 @@ public class PlayerMember : MonoBehaviour
     [SerializeField] private GameObject player;
 
 
+
     void Start()
     {
         l_member.Add(player);
@@ -32,7 +33,7 @@ public class PlayerMember : MonoBehaviour
                 l_member.Add(collision.gameObject);
                 collision.gameObject.GetComponent<Member>().memberId = membercnt;
                 collision.gameObject.GetComponent<Member>().touch = true;
-                collision.gameObject.GetComponent<Member>().target = l_member[membercnt - 1];
+                collision.gameObject.SetActive(false);
             }
         }
     }

@@ -19,7 +19,7 @@ public class MiniPlayer : MonoBehaviour
         pos.anchoredPosition = new Vector2(-623, 33);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         pos.anchoredPosition = new Vector2(minimapenemystart + (player.GetComponent<Transform>().position.x - playerstart) / map_size * minimapsize, 33);
     }
