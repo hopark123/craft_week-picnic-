@@ -17,8 +17,4 @@ public class MemberCnt : MonoBehaviour
         temp = memcnt.ToString();
         text.text = temp;
     }
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        Debug.Log(memberId);
-    }
 }

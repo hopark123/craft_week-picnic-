@@ -6,20 +6,16 @@ TagManager:
   tags:
   - Ground
   - Member
-  - Member1
-  - Member2
-  - Member3
-  - Member4
-  - Member5
+  - Goal
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Member
   - 
   - 
   - 

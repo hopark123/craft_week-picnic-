@@ -4,39 +4,65 @@ using UnityEngine;
 
 public class Member : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public int memberId;
+    [SerializeField] private GameObject player;
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpPower;
+
+    public int memberId = 0;
+    public GameObject target;
     public bool touch = false;
-    public string targetName = "Player";
-    Transform target;
-    private float speed = 3f;
+    Rigidbody2D rig;
+    public LayerMask groundLayer;
 
-    private void Update()
+    //private void FixedUpdate()
+    //{
+    //    if (touch == true)
+    //    {
+    //        Followtarget();
+    //    }
+    //}
+
+    private void Start()
     {
-        if (touch == true)
-            Followtarget();
+        rig = GetComponent<Rigidbody2D>();
+        Physics2D.IgnoreLayerCollision(7, 7);
     }
 
-    public void TargetFind()
-    {
-        target = GameObject.FindGameObjectWithTag(targetName).GetComponent<Transform>();
-    }
+    //private float   Direction()
+    //{
+    //    if (transform.position.x - target.transform.position.x < 0)
+    //    {
+    //        transform.eulerAngles = new Vector2(0, 180);
+    //        return (1);
+    //    }
+    //    else
+    //    {
+    //        transform.eulerAngles = new Vector2(0, 0);
+    //        return (-1);
+    //    }
 
-    void Followtarget()
-    {
-        var heading = target.position - this.transform.position;
+    //}
 
-        if (heading.sqrMagnitude > 0.5f)
-        {
-            transform.position = Vector2.Lerp(transform.position, target.position, Time.deltaTime * speed);
-        }
-        else
-        {
-            Vector2 temp = new Vector2(transform.position.x, target.position.y);
-            transform.position = Vector2.Lerp(transform.position, temp, Time.deltaTime * speed);
-        }
+    //public void Followtarget()
+    //{
+    //    var heading = target.transform.position - this.transform.position;
+    //    if (heading.sqrMagnitude > 3f)
+    //    {
+    //        transform.Translate(new Vector2(-1, 0) * Time.deltaTime * speed);
+    //        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right * -1f, 0.5f, groundLayer);
+    //        RaycastHit2D hitdia = Physics2D.Raycast(transform.position, new Vector2(1 * Direction(), 1) , 2f, groundLayer);
+    //        if (hit || hitdia)
+    //        {
+    //            rig.velocity = Vector2.up * jumpPower;
+    //        }
+    //    }
+    //    if (heading.sqrMagnitude > 100f)
+    //    {
+    //        transform.position = target.transform.position + new Vector3(-1 * Direction(), 0);
+    //        rig.velocity = new Vector2(0, 0);
+    //    }
 
-        //transform.LookAt(target);
-    }
+    //}
 
 }
+    
