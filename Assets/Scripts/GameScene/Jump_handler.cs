@@ -49,7 +49,7 @@ public class Jump_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
             rigid.velocity = temp;
             rigid.AddForce(jumpNext, ForceMode2D.Impulse);
             player.GetComponent<PlayerJump>().playerisjump();
-            animator.SetBool("jump", true);
+            //animator.SetBool("jump", true);
         }
 
     }

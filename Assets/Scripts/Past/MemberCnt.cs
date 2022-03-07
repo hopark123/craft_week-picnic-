@@ -13,8 +13,7 @@ public class MemberCnt : MonoBehaviour
     public void ShowMemberCnt(int memcnt)
     {
         memberId = memcnt;
-        string temp;
-        temp = memcnt.ToString();
+        string temp = memcnt.ToString();
         text.text = temp;
     }
 }
