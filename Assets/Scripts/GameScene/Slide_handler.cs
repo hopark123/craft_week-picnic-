@@ -7,22 +7,34 @@ public class Slide_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 {
 
     [SerializeField] private GameObject player;
+    private BoxCollider2D coll = null;
+    private Vector2 standSize;
+    private Vector2 standOffset;
+    private Vector2 slideSize;
+    private Vector2 slideOffset;
 
-    void Update()
+    private void Start()
     {
+        coll = player.GetComponent<BoxCollider2D>();
+        if (coll)
+        {
+            standOffset = coll.offset;
+            standSize = coll.size;
+            slideSize = new Vector2(coll.size.x, coll.size.y / 2);
+            slideOffset = new Vector2(coll.offset.x, coll.offset.y - coll.size.y / 4);
+        }
     }
-
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        player.GetComponent<BoxCollider2D>().offset = new Vector2(0, (float)-0.5);
-        player.GetComponent<BoxCollider2D>().size = new Vector2(1, 1);
+        coll.offset = slideOffset;
+        coll.size = slideSize;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        player.GetComponent<BoxCollider2D>().offset = new Vector2(0, 0);
-        player.GetComponent<BoxCollider2D>().size = new Vector2(1, 2);
+        coll.offset = standOffset;
+        coll.size = standSize;
     }
 
 }

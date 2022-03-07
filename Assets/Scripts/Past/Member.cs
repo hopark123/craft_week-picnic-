@@ -10,7 +10,6 @@ public class Member : MonoBehaviour
 
     public int memberId = 0;
     public GameObject target;
-    public bool touch = false;
     Rigidbody2D rig;
     public LayerMask groundLayer;
 

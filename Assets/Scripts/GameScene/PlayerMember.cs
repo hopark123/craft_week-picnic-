@@ -11,6 +11,7 @@ public class PlayerMember : MonoBehaviour
     private int membercnt = 0;
     [SerializeField] private Text text;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject showItem;
 
 
 
@@ -23,32 +24,31 @@ public class PlayerMember : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Member")
+        if (collision.gameObject.layer == 7) //member
         {
-            if (collision.gameObject.GetComponent<Member>().touch == false)
-            {
-                membercnt++;
-                text.GetComponent<MemberCnt>().ShowMemberCnt(membercnt);
-                Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-                l_member.Add(collision.gameObject);
-                collision.gameObject.GetComponent<Member>().memberId = membercnt;
-                collision.gameObject.GetComponent<Member>().touch = true;
-                collision.gameObject.SetActive(false);
-            }
+            membercnt++;
+            //Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+            l_member.Add(collision.gameObject);
+            collision.gameObject.SetActive(false);
+            ShowMemberCnt();
+            showItem.GetComponent<ShowItem>().AddItem(membercnt, collision.gameObject);
         }
     }
 
-    public void catchMember()
+    public void DeleteItem()
     {
         Destroy(l_member[membercnt]);
-        Debug.Log("catch");
         membercnt--;
-        text.GetComponent<MemberCnt>().ShowMemberCnt(membercnt);
+        ShowMemberCnt();
         if (membercnt < 0)
             Debug.Log("Game.Over");
     }
 
-
+    public void ShowMemberCnt()
+    {
+        string temp = membercnt.ToString();
+        text.text = temp;
+    }
 
 
 
