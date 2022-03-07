@@ -4,25 +4,20 @@ using UnityEngine;
 
 public class PlayerGround : MonoBehaviour
 {
-    private bool isplayerGround = false;
+    public bool isGround { get; private set; } = false;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
-            isplayerGround = true;
+            isGround = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
-            isplayerGround = false;
+            isGround = false;
         }
-    }
-
-    public bool getGround()
-    {
-        return (isplayerGround);
     }
 }

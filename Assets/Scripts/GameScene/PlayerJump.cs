@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-    private bool isGround = false;
-    private int jumpcnt = 0;
+    public int jumpcnt { get; private set; } = 0;
+    public bool isGround { get; private set; }
     private Animator animator;
 
     private void Start()
     {
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // check player is ground //
@@ -18,7 +18,7 @@ public class PlayerJump : MonoBehaviour
     {
         if (collision.gameObject.layer == 3) //ground
         {
-            //animator.SetBool("jump", false);
+            animator.SetBool("jump", false);
             if (this.GetComponent<Rigidbody2D>().velocity.y <= 0)
             {
                 isGround = true;
@@ -33,19 +33,10 @@ public class PlayerJump : MonoBehaviour
             isGround = false;
         }
     }
-
-    public bool getGround()
-    {
-        return (isGround);
-    }
-
+    
     public void playerisjump()
     {
         ++jumpcnt;
+        animator.SetBool("jump", true);
     }
-    public int getJumpcnt()
-    {
-        return (jumpcnt);
-    }
-
 }
