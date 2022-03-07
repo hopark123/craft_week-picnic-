@@ -10,26 +10,25 @@ public class PlayerJump : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     // check player is ground //
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // collision vector 비교
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.layer == 3) //ground
         {
-            animator.SetBool("jump", false);
+            //animator.SetBool("jump", false);
             if (this.GetComponent<Rigidbody2D>().velocity.y <= 0)
             {
                 isGround = true;
                 jumpcnt = 0;
-            }
+            }   
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.layer == 3) //ground
         {
             isGround = false;
         }
