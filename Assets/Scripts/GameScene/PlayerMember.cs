@@ -21,8 +21,22 @@ public class PlayerMember : MonoBehaviour
         membercnt = 0;
     }
 
-
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 7) //member
+        {
+            membercnt++;
+            //Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+            l_member.Add(collision.gameObject);
+            collision.gameObject.SetActive(false);
+            ShowMemberCnt();
+            showItem.GetComponent<ShowItem>().AddItem(membercnt, collision.gameObject);
+        }
+    }
+    */
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 7) //member
         {

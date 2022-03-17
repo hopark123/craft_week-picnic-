@@ -8,14 +8,19 @@ public class Slide_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     [SerializeField] private GameObject player;
     private BoxCollider2D coll = null;
+    //private CapsuleCollider2D coll = null;
     private Vector2 standSize;
     private Vector2 standOffset;
     private Vector2 slideSize;
     private Vector2 slideOffset;
 
+    Animator animator;
+
     private void Start()
     {
         coll = player.GetComponent<BoxCollider2D>();
+        //coll = player.GetComponent<CapsuleCollider2D>();
+        animator = player.GetComponent<Animator>();
         if (coll)
         {
             standOffset = coll.offset;
@@ -29,12 +34,14 @@ public class Slide_handler : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         coll.offset = slideOffset;
         coll.size = slideSize;
+        animator.SetBool("slide", true);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         coll.offset = standOffset;
         coll.size = standSize;
+        animator.SetBool("slide", false);
     }
 
 }

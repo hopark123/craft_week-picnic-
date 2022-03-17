@@ -6,11 +6,14 @@ public class PlayerJump : MonoBehaviour
 {
     public int jumpcnt { get; private set; } = 0;
     public bool isGround { get; private set; }
+    
     private Animator animator;
+    private Rigidbody2D rd;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        rd = GetComponent<Rigidbody2D>();
     }
 
     // check player is ground //
@@ -33,7 +36,7 @@ public class PlayerJump : MonoBehaviour
             isGround = false;
         }
     }
-    
+
     public void playerisjump()
     {
         ++jumpcnt;
