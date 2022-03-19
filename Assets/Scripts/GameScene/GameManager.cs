@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject respawnPoint;
     public GameObject player;
-    
+    private int stageNumber = 1;
+
+    private string nowScene;
+    private Stack<int>[] itemsStack;
+
     public void Kill()
     {
         StartCoroutine(KillPlayer());
@@ -19,4 +24,28 @@ public class GameManager : MonoBehaviour
         player.transform.position = respawnPoint.transform.position;
         player.SetActive(true);
     }
+
+    public void GetItems(int itemNumber)
+    {
+        itemsStack[stageNumber].Push(itemNumber);
+    }
+
+    public void LostItems()
+    {
+        itemsStack[stageNumber].Pop();
+    }
+
+    public void ChangeSence(string nextScene)
+    {
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(nextScene);
+        nowScene = nextScene;
+        stageNumber++;
+    }
+
+    Stack<int>[] GetItemsStack()
+    {
+        return itemsStack;
+    }
+
+
 }

@@ -7,17 +7,16 @@ using UnityEngine.UI;
 
 public class PlayerMember : MonoBehaviour
 {
-    public List<GameObject> l_member;
     private int membercnt = 0;
     [SerializeField] private Text text;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject showItem;
+    [SerializeField] private GameObject gameManager;
 
 
 
     void Start()
     {
-        l_member.Add(player);
         membercnt = 0;
     }
 
@@ -40,19 +39,25 @@ public class PlayerMember : MonoBehaviour
     {
         if (collision.gameObject.layer == 7) //member
         {
-            membercnt++;
-            //Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-            l_member.Add(collision.gameObject);
-            collision.gameObject.SetActive(false);
-            ShowMemberCnt();
+            GetItem(collision.gameObject);
             showItem.GetComponent<ShowItem>().AddItem(membercnt, collision.gameObject);
         }
     }
 
+    public void GetItem(GameObject itemObject)
+    {
+        membercnt++;
+        gameManager.GetComponent<GameManager>().GetItems(membercnt);
+        ShowMemberCnt();
+        itemObject.SetActive(false);
+        showItem.GetComponent<ShowItem>().AddItem(membercnt, itemObject);
+    }
+
+
     public void DeleteItem()
     {
-        Destroy(l_member[membercnt]);
         membercnt--;
+        gameManager.GetComponent<GameManager>().LostItems();
         ShowMemberCnt();
         if (membercnt < 0)
             Debug.Log("Game.Over");
