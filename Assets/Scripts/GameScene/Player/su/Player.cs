@@ -95,6 +95,11 @@ public class Player : MonoBehaviour
             Jumpcnt = 0;
             animator.SetBool("jump", false);
         }
+        else
+        {
+            Debug.Log("contact" + contact.point + "player" + transform.position);
+            gameManager.Kill();
+        }
 #else
         if (transform.position.y > contact.point.y && Mathf.Abs(transform.position.x - contact.point.x) <= standSize.x / 2 * transform.localScale.x + 0.01f)
         {
