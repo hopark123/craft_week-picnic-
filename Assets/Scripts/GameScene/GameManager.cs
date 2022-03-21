@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(SceneController))]
 public class GameManager : MonoBehaviour
 {
     public GameObject respawnPoint;
     public GameObject player;
-    private int stageNumber = 1;
+    public int stageNumber { get; set; } = 1;
 
-    private string nowScene;
     private Stack<int>[] itemsStack;
+    private SceneController sceneController;
+
+    void Awake()
+    {
+        sceneController = new SceneController();
+        itemsStack = new Stack<int>[3];
+        for (int i = 0; i < itemsStack.Length; ++i)
+            itemsStack[i] = new Stack<int>();
+    }
 
     public void Kill()
     {
@@ -37,9 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeSence(string nextScene)
     {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(nextScene);
-        nowScene = nextScene;
-        stageNumber++;
+        StartCoroutine(sceneController.LoadScenes(nextScene));
     }
 
     Stack<int>[] GetItemsStack()

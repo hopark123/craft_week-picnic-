@@ -9,6 +9,7 @@ TagManager:
   - Goal
   - itemShow
   - Hit
+  - item
   layers:
   - Default
   - TransparentFX
