@@ -37,6 +37,7 @@ public class StageManager : MonoBehaviour
         player.transform.position = respawnPoint.transform.position;
         player.transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.transform.GetComponent<Player>().Jumpcnt = 2;
+        player.transform.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         player.SetActive(true);
     }
 }

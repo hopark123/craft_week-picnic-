@@ -54,8 +54,6 @@ public class Player : MonoBehaviour
     {
         IsAlive = true;
         IsGround = false;
-        if (!animator.GetBool("hit"))
-            spriteRenderer.color = new Color(1, 1, 1, 1);
     }
     
     void Awake()
@@ -66,6 +64,8 @@ public class Player : MonoBehaviour
 
     void Kill()
     {
+        if (!IsAlive)
+            return;
         IsAlive = false;
         animator.SetBool("hit", true);
         stageManager.Kill();
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
 
     public void Hit()
     {
-        Debug.Log("Hit");
+        Debug.Log(this.GetComponent<Transform>().position.ToString() + "Hit");
         Kill();
     }
 

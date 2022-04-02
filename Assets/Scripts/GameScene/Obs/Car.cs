@@ -36,8 +36,10 @@ public class Car : Obstacle
 
     IEnumerator Kill()
     {
-        yield return new WaitForSecondsRealtime(5.0f);
+        Debug.Log(IsAlive);
+        yield return new WaitForSecondsRealtime(1.5f);
         col.enabled = false;
-        gameObject.SetActive(false);
+        if (!IsAlive)
+            gameObject.SetActive(false);
     }
 }
