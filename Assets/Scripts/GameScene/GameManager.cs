@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(SceneController))]
 public class GameManager : MonoBehaviour
 {
-    public GameObject respawnPoint;
-    public GameObject player;
     public int stageNumber { get; set; } = 1;
 
     private Stack<int>[] itemsStack;
@@ -20,21 +18,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < itemsStack.Length; ++i)
             itemsStack[i] = new Stack<int>();
     }
-
-    public void Kill()
-    {
-        StartCoroutine(KillPlayer());
-    }
-
-    IEnumerator KillPlayer()
-    {
-        //yield return new WaitForSecondsRealtime(1.0f);
-        player.SetActive(false);
-        yield return new WaitForSecondsRealtime(3.0f);
-        player.transform.position = respawnPoint.transform.position;
-        player.SetActive(true);
-    }
-
+    
     public void GetItems(int itemNumber)
     {
         itemsStack[stageNumber].Push(itemNumber);

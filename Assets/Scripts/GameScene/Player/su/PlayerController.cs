@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (jump)
+        if (jump && player.IsAlive)
         {
             JumpAction();
             jump = false;

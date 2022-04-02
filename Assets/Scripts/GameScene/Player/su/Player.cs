@@ -10,43 +10,71 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     GameManager gameManager;
+    [SerializeField]
+    StageManager stageManager;
     Animator animator;
+    SpriteRenderer spriteRenderer;
+
+    public bool Slow { get; set; } = false;
+
+    const float _jumpPower = 30;
+    public float jumpPower
+    {
+        get
+        {
+            if (Slow)
+                return _jumpPower * 2 / 3;
+            return _jumpPower;
+        }
+    }
+
+    const float _moveSpeed = 8;
     
-    [field:SerializeField]
-    public float jumpPower { get; private set; }
-    
-    [field:SerializeField]
-    public float moveSpeed { get; private set; }
-    
-    [field:SerializeField]
-    public int MaxJumpCnt { get; private set; }
+    public float moveSpeed
+    {
+        get
+        {
+            if (Slow)
+                return (_moveSpeed + gameManager.stageNumber) / 2;
+            return _moveSpeed;
+        }
+    }
+
+    const int _maxJumpCnt = 2;
+
+    public int MaxJumpCnt { get => _maxJumpCnt; }
 
     public bool IsGround { get; set; }
     public bool IsAlive { get; set; }
     
     public uint Jumpcnt { get; set; } = 0;
     public uint Itemcnt { get; set; } = 0;
-    
+
     void OnEnable()
     {
         IsAlive = true;
         IsGround = false;
+        if (!animator.GetBool("hit"))
+            spriteRenderer.color = new Color(1, 1, 1, 1);
     }
-
-    void OnDisable()
-    {
-        IsAlive = false;
-    }
-
+    
     void Awake()
     {
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    void Kill()
+    {
+        IsAlive = false;
+        animator.SetBool("hit", true);
+        stageManager.Kill();
     }
 
     public void Hit()
     {
         Debug.Log("Hit");
-        gameManager.Kill();
+        Kill();
     }
 
     public void GetItem(GameObject itemObject)

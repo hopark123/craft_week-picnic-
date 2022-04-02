@@ -30,6 +30,11 @@ public class PlayerCollision : MonoBehaviour
             player.IsGround = true;
             player.Jumpcnt = 0;
             player.Animate().SetBool("jump", false);
+            if (collision.transform.CompareTag("Obs"))
+            {
+                Obstacle obs = collision.transform.GetComponent<Obstacle>();
+                obs.Hit();
+            }
         }
         else
         {
@@ -55,5 +60,17 @@ public class PlayerCollision : MonoBehaviour
             player.GetItem(collision.gameObject);
         if (collision.CompareTag("Goal"))
             player.Goal();
+        if (collision.transform.CompareTag("Slow"))
+        {
+            player.Slow = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Slow"))
+        {
+            player.Slow = false;
+        }
     }
 }
