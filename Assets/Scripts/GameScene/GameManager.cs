@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator KillPlayer()
     {
+        //yield return new WaitForSecondsRealtime(1.0f);
         player.SetActive(false);
         yield return new WaitForSecondsRealtime(3.0f);
         player.transform.position = respawnPoint.transform.position;

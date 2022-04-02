@@ -32,7 +32,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //register controller button
-        jumpButton.onClick.AddListener(Jump);
+        //jumpButton.onClick.AddListener(Jump);
+        EventTrigger jmpTrigger = jumpButton.gameObject.AddComponent<EventTrigger>();
+        //add pointerDown event to jmpTrigger
+        var jmpPointerDown = new EventTrigger.Entry();
+        jmpPointerDown.eventID = EventTriggerType.PointerDown;
+        jmpPointerDown.callback.AddListener((eventData) => Jump());
+        jmpTrigger.triggers.Add(jmpPointerDown);
 
         //add eventdata to slideButton
         EventTrigger trigger = slideButton.gameObject.AddComponent<EventTrigger>();
@@ -73,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        player.transform.Translate(Vector3.right * player.moveSpeed);
+        player.transform.Translate(Vector3.right * player.moveSpeed * Time.deltaTime);
     }
 
     private void Jump() => jump = true;
