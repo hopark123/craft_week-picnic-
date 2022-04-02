@@ -10,6 +10,8 @@ TagManager:
   - itemShow
   - Hit
   - item
+  - Obs
+  - Slow
   layers:
   - Default
   - TransparentFX
