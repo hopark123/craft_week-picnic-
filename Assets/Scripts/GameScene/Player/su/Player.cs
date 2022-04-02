@@ -43,7 +43,11 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void Hit() { }
+    public void Hit()
+    {
+        Debug.Log("Hit");
+        gameManager.Kill();
+    }
 
     public void GetItem(GameObject itemObject)
     {
