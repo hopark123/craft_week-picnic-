@@ -17,6 +17,8 @@ public class Car : Obstacle
         //col = GetComponent<PolygonCollider2D>();
         col = GetComponent<EdgeCollider2D>();
         particle = transform.GetChild(0).gameObject;
+
+        jumpAdd = 2;
     }
 
     protected override void OnEnable()
@@ -29,14 +31,13 @@ public class Car : Obstacle
     public override void Hit()
     {
         base.Hit();
-        //animator.SetBool("hit", true);
+        animator.SetBool("hit", true);
         particle.SetActive(true);
         StartCoroutine(Kill());
     }
 
     IEnumerator Kill()
     {
-        Debug.Log(IsAlive);
         yield return new WaitForSecondsRealtime(1.5f);
         col.enabled = false;
         if (!IsAlive)

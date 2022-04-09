@@ -34,7 +34,7 @@ public class PlayerCollision : MonoBehaviour
             {
                 Obstacle obs = collision.transform.GetComponent<Obstacle>();
                 obs.Hit();
-                player.Jumpcnt = 1;
+                player.Jumpcnt = 2 - obs.jumpAdd;
             }
         }
         else

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
@@ -8,11 +10,6 @@ public class StageManager : MonoBehaviour
     public GameObject obs;
     public GameObject player;
     public GameObject respawnPoint;
-    
-    // Start is called before the first frame update
-    void Start()
-    {   
-    }
 
     public void Kill()
     {

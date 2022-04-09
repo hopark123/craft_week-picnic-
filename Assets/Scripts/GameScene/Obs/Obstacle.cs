@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour
     protected Animator animator;
 
     public bool IsAlive { get; private set; }
+    public uint jumpAdd { get; protected set; } = 1;
     
     protected virtual void Awake()
     {

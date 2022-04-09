@@ -91,11 +91,13 @@ public class Player : MonoBehaviour
 
     public void Goal()
     {
+        /*
         gameManager.stageNumber++;
         if (gameManager.stageNumber > 3)
             gameManager.ChangeSence("endScene");
         else
             gameManager.ChangeSence("stage" + gameManager.stageNumber.ToString());
+        */
         Debug.Log("end game");
     }
     

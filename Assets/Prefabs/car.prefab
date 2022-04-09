@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 1094310460676547358}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ba8b2d1ebd393482096fa7bb0113606a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -370,8 +370,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 0.6666667}
-      maxColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 0.5176471}
+      minColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 0.3254902}
+      maxColor: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 0.6313726}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4909,7 +4909,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 16cc75dcc4d354e2e906209d33c2f7d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
