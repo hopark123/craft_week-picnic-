@@ -19,6 +19,6 @@ public class Item : MonoBehaviour
     void Start()
     {
         transform.gameObject.name = Id;
-        sr.sprite = Resources.Load<Sprite>("items/" + Id) as Sprite;
+        //sr.sprite = Resources.Load<Sprite>("items/" + Id + 4 * GameData.stage) as Sprite;
     }
 }

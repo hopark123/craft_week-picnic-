@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,8 +9,6 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    GameManager gameManager;
     [SerializeField]
     StageManager stageManager;
     Animator animator;
@@ -35,7 +34,7 @@ public class Player : MonoBehaviour
         get
         {
             if (Slow)
-                return (_moveSpeed + gameManager.stageNumber) / 2;
+                return (_moveSpeed + GameManager.stageNumber) / 2;
             return _moveSpeed;
         }
     }
@@ -48,7 +47,6 @@ public class Player : MonoBehaviour
     public bool IsAlive { get; set; }
     
     public uint Jumpcnt { get; set; } = 0;
-    public uint Itemcnt { get; set; } = 0;
 
     void OnEnable()
     {
@@ -73,30 +71,26 @@ public class Player : MonoBehaviour
 
     public void Hit()
     {
-        Debug.Log(this.GetComponent<Transform>().position.ToString() + "Hit");
         Kill();
     }
 
     public void GetItem(GameObject itemObject)
     {
-        Itemcnt++;
-        string index = itemObject.GetComponent<Item>().Id;
-        Debug.Log(index);
-        Debug.Log((int)index[index.Length - 1]);
-        gameManager.GetItems((int)index[index.Length - 1] - '0');
-        //ShowMemberCnt();
+        //int index = int.Parse(itemObject.name);
+        int index = Convert.ToInt32(itemObject.name);
+        stageManager.GetItem(index);
         itemObject.SetActive(false);
         //showItem.GetComponent<ShowItem>().AddItem(membercnt, itemObject);
+    }
+
+    public void DeleteItem()
+    {
     }
 
     public void Goal()
     {
         /*
-        gameManager.stageNumber++;
-        if (gameManager.stageNumber > 3)
-            gameManager.ChangeSence("endScene");
-        else
-            gameManager.ChangeSence("stage" + gameManager.stageNumber.ToString());
+        GameManager.stageNumber++;
         */
         Debug.Log("end game");
     }

@@ -10,10 +10,19 @@ public class StageManager : MonoBehaviour
     public GameObject obs;
     public GameObject player;
     public GameObject respawnPoint;
+    public ItemSlot slot;
 
     public void Kill()
     {
         StartCoroutine(KillPlayer());
+        slot.LostItem();
+        GameManager.deathCnt++;
+    }
+
+    public void GetItem(int index)
+    {
+        slot.GetItem(index);
+        GameManager.GetItem(index);
     }
 
     IEnumerator KillPlayer()
