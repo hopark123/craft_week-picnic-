@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ItemSlot : MonoBehaviour
 {
     public GameObject items;
+    public Sprite itemDestroyed;
 
     private Image[] slots;
 
@@ -42,9 +43,10 @@ public class ItemSlot : MonoBehaviour
     {
         for (int i = GameManager.itemNum - 1; i >= 0; --i)
         {
-            if (slots[i].color == on)
+            if (slots[i].color == on && slots[i].sprite != itemDestroyed)
             {
-                slots[i].color = off;
+                //slots[i].color = off;
+                slots[i].sprite = itemDestroyed;
                 GameManager.LostItem(i);
                 break;
             }

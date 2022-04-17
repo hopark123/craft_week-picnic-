@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 //[RequireComponent(typeof(SceneController))]
 //public class GameManager : MonoBehaviour
@@ -22,17 +21,8 @@ public static class GameManager
     //private Stack<int>[] itemsStack;
 
     //private SceneController sceneController;
-    private static SceneController sceneController;
+    public static SceneController sceneController { get; } = new SceneController();
 
-    /*
-    void Awake()
-    {
-        sceneController = new SceneController();
-        itemsStack = new Stack<int>[3];
-        for (int i = 0; i < itemsStack.Length; ++i)
-            itemsStack[i] = new Stack<int>();
-    }
-    */
     /* 
     public void GetItems(int itemNumber)
     {
@@ -63,5 +53,11 @@ public static class GameManager
     public static void LostItem(int itemNumber)
     {
         itemlst[stageNumber, itemNumber] = false;
+    }
+
+    public static void Load(string nextScene)
+    {
+        sceneController.dest = nextScene;
+        sceneController.CallLoadScene();
     }
 }
