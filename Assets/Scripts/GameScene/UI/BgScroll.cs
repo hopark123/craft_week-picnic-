@@ -16,7 +16,7 @@ public class BgScroll : MonoBehaviour
     float canvasSize;
     float bgSize;
 
-    float moveLength;
+    float diff;
     float mapLength;
 
     SpriteRenderer sr;
@@ -29,20 +29,15 @@ public class BgScroll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bgSize = sr.sprite.rect.width;
+        bgSize = sr.sprite.rect.width * transform.localScale.x;
         canvasSize = canvas.rect.width;
-        moveLength = (bgSize  - canvasSize);
+        diff = (bgSize  - canvasSize) / sr.sprite.pixelsPerUnit;
         mapLength = goal.position.x - respawnPoint.position.x;
 
         playerSpeed = player.moveSpeed;
-        transform.localPosition = new Vector3(moveLength / 2, 0, 10);
-        Debug.Log("bgSize " + bgSize);
-        Debug.Log("canvasSize " + canvasSize);
-        Debug.Log("tranfroem " + transform.localPosition);
-        Debug.Log("mapLengt" + mapLength);
-        Debug.Log("player" + player.transform.position.x);
-	    Debug.Log("respawn" + respawnPoint.position.x);
-        Debug.Log("moveLen" + moveLength);
+        //transform.localPosition = new Vector3(moveLength / 2, 0, 10);
+        Debug.Log("canvas.size" + canvasSize);
+        Debug.Log("diff" + diff);
         Debug.Log("====================");
 
     }
@@ -50,17 +45,8 @@ public class BgScroll : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        Debug.Log("bgSize " + bgSize);
-        Debug.Log("canvasSize " + canvasSize);
-        Debug.Log("tranfroem " + transform.localPosition);
-        Debug.Log("mapLengt" + mapLength);
-        Debug.Log("player" + player.transform.position.x);
-        Debug.Log("respawn" + respawnPoint.position.x);
-        Debug.Log("moveLen" + moveLength);
-
         //Debug.Log(transform.localPosition);
         //transform.position = new Vector3(moveLength / canvasSize - (moveLength * (player.transform.position.x - respawnPoint.position.x)) / mapLength , 0, 0);
-        transform.localPosition = new Vector3(moveLength / 2 + (-moveLength * (player.transform.position.x - respawnPoint.position.x)) / mapLength, transform.localPosition.y, 10);
-        Debug.Log(transform);
+        //transform.localPosition = new Vector3(moveLength / 2 + (-moveLength * (player.transform.position.x - respawnPoint.position.x)) / mapLength, transform.localPosition.y, 10);
     }
 }
