@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +10,7 @@ public class StageManager : MonoBehaviour
     public GameObject player;
     public GameObject respawnPoint;
     public ItemSlot slot;
+    public GameObject playCanvus;
 
     public bool Pause { get; private set; } = false;
     
@@ -48,14 +48,24 @@ public class StageManager : MonoBehaviour
         player.transform.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         player.SetActive(true);
     }
-    
+
+    public void Restart()
+    {
+        Respawn();
+    }
 
     public void PauseGame()
     {
         Pause = !Pause;
         if (Pause)
+        {
             Time.timeScale = 0f;
+            playCanvus.SetActive(false);
+        }
         else
+        {
             Time.timeScale = 1f;
+            playCanvus.SetActive(true);
+        }
     }
 }

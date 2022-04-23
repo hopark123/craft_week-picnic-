@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [field:SerializeField]
+    [field: SerializeField]
     public string Id { get; private set; }
 
     SpriteRenderer sr;

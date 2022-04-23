@@ -7,13 +7,14 @@ public class PauseButton : MonoBehaviour
 {
     public StageManager stageManager;
     public Sprite pauseImg;
-    public Sprite playImg;
 
     Image buttonImg;
+    Button button;
 
     void Awake()
     {
         buttonImg = GetComponent<Image>();
+        button = GetComponent<Button>();
     }
     
     // Start is called before the first frame update
@@ -22,21 +23,16 @@ public class PauseButton : MonoBehaviour
         buttonImg.sprite = pauseImg;
     }
 
-    public void PressButton()
+    public void Pause()
     {
-        stageManager.PauseGame();
-        if (stageManager.Pause)
-            buttonImg.sprite = playImg;
-        else
-            buttonImg.sprite = pauseImg;
+        buttonImg.enabled = false;
+        button.enabled = false;
     }
 
-    private void OnApplicationPause(bool pause)
+    public void Play()
     {
-        if (pause)
-        {
-            if (!stageManager.Pause)
-                PressButton();
-        }
+        buttonImg.enabled = true;
+        button.enabled = true;
+        buttonImg.sprite = pauseImg;
     }
 }

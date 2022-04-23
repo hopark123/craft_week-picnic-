@@ -13,7 +13,6 @@ public class ItemSlot : MonoBehaviour
 
     private Color on = Color.white;
     private Color init = new Color(0.3f, 0.3f, 0.3f, 0.3f);
-    private Color off = Color.black;
 
     void Awake()
     {

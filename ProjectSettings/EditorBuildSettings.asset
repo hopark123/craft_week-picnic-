@@ -11,15 +11,15 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OpeningScene/OpeningScene.unity
     guid: bdb15e900624540949982e1813e67a31
   - enabled: 1
-    path: Assets/Scenes/EndingScene.unity
-    guid: 97f1ce135188341b892152da77a381e1
-  - enabled: 1
     path: Assets/Scenes/GameScene/GameScene 1.unity
     guid: f6cc760c5e10c4a57b9cde2bde29ad00
+  - enabled: 1
+    path: Assets/Scenes/EndingScene.unity
+    guid: 97f1ce135188341b892152da77a381e1
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: 615b2af1ce85a4d5eb23ded00ab5007e
