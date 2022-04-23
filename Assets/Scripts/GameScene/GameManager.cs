@@ -54,6 +54,14 @@ public static class GameManager
         itemlst[stageNumber, itemNumber] = false;
     }
 
+    public static void ResetItem()
+    {
+        for (int i = 0; i < itemNum; i++)
+        {
+            itemlst[stageNumber, i] = false;
+        }
+    }
+
     public static void Load(string nextScene)
     {
         sceneController.dest = nextScene;

@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class loadManager : MonoBehaviour
 {
-    public Slider progressBar;
+    [SerializeField]
+    private Slider progressBar;
     
     // Start is called before the first frame update
     void Start()
@@ -33,16 +34,13 @@ public class loadManager : MonoBehaviour
             }
             else
             {
-                progressBar.value = Mathf.Lerp(progressBar.value, 1.05f, timer);
-                    Debug.Log("clear");
+                progressBar.value = Mathf.Lerp(progressBar.value, 1.1f, timer);
                 if (progressBar.value > 0.999f)
                 {
-                    Debug.Log("fin");
                     asyncOperation.allowSceneActivation = true;
                     yield break;
                 }
             }
-
         }
     }
 }

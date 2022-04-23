@@ -1,16 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
-    public GameObject goal;
-    public GameObject obs;
-    public GameObject player;
-    public GameObject respawnPoint;
-    public ItemSlot slot;
-    public GameObject playCanvus;
+    [SerializeField]
+    private int stage;
+    [SerializeField]
+    private GameObject goal;
+    [SerializeField]
+    private GameObject obs;
+    [SerializeField]
+    private GameObject player;
+    [SerializeField]
+    private GameObject respawnPoint;
+    [SerializeField]
+    private ItemSlot slot;
+    [SerializeField]
+    private GameObject playCanvus;
 
     public bool Pause { get; private set; } = false;
     
@@ -51,7 +60,13 @@ public class StageManager : MonoBehaviour
 
     public void Restart()
     {
-        Respawn();
+        GameManager.ResetItem();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+    }
+
+    public void Goal()
+    {
     }
 
     public void PauseGame()

@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerController : MonoBehaviour
 {
-    public Button jumpButton;
-    public Button slideButton;
+    [SerializeField]
+    private Button jumpButton;
+    [SerializeField]
+    private Button slideButton;
 
     private Player player;
     private Rigidbody2D rd;

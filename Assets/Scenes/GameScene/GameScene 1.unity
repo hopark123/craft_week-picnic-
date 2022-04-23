@@ -6418,6 +6418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97169f47069894b8ea68d249508bc7c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stage: 0
   goal: {fileID: 427543564}
   obs: {fileID: 519382277}
   player: {fileID: 628182841}
@@ -6702,9 +6703,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -1.1218872, y: 8.309856}
   m_SpriteTilingProperty:
-    border: {x: 4.34375, y: 3.84375, z: 3.65625, w: 5.5}
+    border: {x: 4.34375, y: 3.8625555, z: 3.6562502, w: 5.526909}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12.9375, y: 16.15625}
+    oldSize: {x: 12.9375, y: 16.235294}
     newSize: {x: 13.233888, y: 26.190567}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
@@ -7580,7 +7581,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.0009784698, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -8459,9 +8460,9 @@ RectTransform:
   m_Father: {fileID: 80908275}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -142}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -155, y: -142}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1371828767
@@ -8477,7 +8478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageManager: {fileID: 276598816}
-  pauseImg: {fileID: 21300000, guid: 5ddc68121624542099cd8d4a1026de7a, type: 3}
+  pauseImg: {fileID: 21300000, guid: 8eb46dfa332c143a98291e97dbbb7ab3, type: 3}
 --- !u!114 &1371828768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8554,7 +8555,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5ddc68121624542099cd8d4a1026de7a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8eb46dfa332c143a98291e97dbbb7ab3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8618,7 +8619,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1635513, y: 1}
+    m_SensorSize: {x: 2.1641026, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12226,7 +12227,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.0009784698, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -12694,7 +12695,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 77b66623f1dfa4f48bd2f9ccf5fda64e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 113e221964efa4dc48591e6f5c3e38c0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12977,19 +12978,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1630121281211654058, guid: cbc4daa739ac64264980bdb2953e22d7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1630121281211654058, guid: cbc4daa739ac64264980bdb2953e22d7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1630121281211654058, guid: cbc4daa739ac64264980bdb2953e22d7, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1630121281211654058, guid: cbc4daa739ac64264980bdb2953e22d7, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1630121281211654058, guid: cbc4daa739ac64264980bdb2953e22d7, type: 3}
       propertyPath: m_SizeDelta.x
@@ -13029,11 +13030,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1630121281211654058, guid: cbc4daa739ac64264980bdb2953e22d7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -364.93945
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1630121281211654058, guid: cbc4daa739ac64264980bdb2953e22d7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -169
+      value: 132
       objectReference: {fileID: 0}
     - target: {fileID: 1630121281211654058, guid: cbc4daa739ac64264980bdb2953e22d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13053,6 +13054,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1630121281607348265, guid: cbc4daa739ac64264980bdb2953e22d7, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630121281607348265, guid: cbc4daa739ac64264980bdb2953e22d7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -8.000061
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630121281607348265, guid: cbc4daa739ac64264980bdb2953e22d7, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
-    public GameObject items;
-    public Sprite itemDestroyed;
+    [SerializeField]
+    private GameObject items;
+    [SerializeField]
+    private Sprite itemDestroyed;
 
     private Image[] slots;
 

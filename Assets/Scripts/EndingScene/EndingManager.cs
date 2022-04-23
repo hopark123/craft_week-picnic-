@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class EndingManager : MonoBehaviour
 {
-    public GameObject itemObjs;
-
-    public GameObject itemCntObj;
+    [SerializeField]
+    private GameObject itemObjs;
+    [SerializeField]
+    private GameObject itemCntObj;
     private TextMeshProUGUI itemInfo;
-    
-    public GameObject deadTextObj;
+    [SerializeField]
+    private GameObject deadTextObj;
     private TextMeshProUGUI deadCnt;
 
     private int itemCnt;

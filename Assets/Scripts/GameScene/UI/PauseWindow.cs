@@ -36,6 +36,7 @@ public class PauseWindow : MonoBehaviour
 
     private void replayAction()
     {
+        stageManager.Restart();
     }
 
     private void homeAction()

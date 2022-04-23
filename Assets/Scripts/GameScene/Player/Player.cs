@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     StageManager stageManager;
     Animator animator;
-    SpriteRenderer spriteRenderer;
 
     public bool Slow { get; set; } = false;
 
@@ -57,7 +56,6 @@ public class Player : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Kill()
@@ -76,15 +74,9 @@ public class Player : MonoBehaviour
 
     public void GetItem(GameObject itemObject)
     {
-        //int index = int.Parse(itemObject.name);
         int index = Convert.ToInt32(itemObject.name);
         stageManager.GetItem(index);
         itemObject.SetActive(false);
-        //showItem.GetComponent<ShowItem>().AddItem(membercnt, itemObject);
-    }
-
-    public void DeleteItem()
-    {
     }
 
     public void Goal()
