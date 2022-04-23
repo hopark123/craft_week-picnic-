@@ -12,6 +12,8 @@ public class StageManager : MonoBehaviour
     public GameObject respawnPoint;
     public ItemSlot slot;
 
+    public bool Pause { get; private set; } = false;
+    
     public void Kill()
     {
         StartCoroutine(KillPlayer());
@@ -45,5 +47,15 @@ public class StageManager : MonoBehaviour
         player.transform.GetComponent<Player>().Jumpcnt = 2;
         player.transform.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         player.SetActive(true);
+    }
+    
+
+    public void PauseGame()
+    {
+        Pause = !Pause;
+        if (Pause)
+            Time.timeScale = 0f;
+        else
+            Time.timeScale = 1f;
     }
 }
