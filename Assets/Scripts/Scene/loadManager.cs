@@ -21,9 +21,10 @@ public class loadManager : MonoBehaviour
 
         yield return null;
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(GameManager.sceneController.dest);
-        asyncOperation.allowSceneActivation = false;
 
+        asyncOperation.allowSceneActivation = false;
         timer += Time.deltaTime;
+
         while (!asyncOperation.isDone)
         {
             yield return null;

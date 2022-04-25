@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
@@ -61,8 +60,8 @@ public class StageManager : MonoBehaviour
     public void Restart()
     {
         GameManager.ResetItem();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
+        GameManager.Load(SceneManager.GetActiveScene().name);
     }
 
     public void Goal()
