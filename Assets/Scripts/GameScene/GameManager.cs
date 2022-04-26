@@ -7,7 +7,8 @@ using UnityEngine;
 
 public static class GameManager
 {
-    //public int stageNumber { get; set; } = 1;
+    public static bool openingShow { get; set; } = false;
+    
     public static int stageNumber { get; set; } = 0;
 
     public static int stageSize { get; set; } = 3;

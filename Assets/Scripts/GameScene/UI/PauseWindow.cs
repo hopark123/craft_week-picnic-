@@ -18,12 +18,12 @@ public class PauseWindow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator.SetBool("pause", false);
+        animator.SetInteger("pauseStatus", 0);
     }
 
     public void Pause()
     {
-        animator.SetBool("pause", true);
+        animator.SetInteger("pauseStatus", 1);
         pauseButton.Pause();
         stageManager.PauseGame();
     }
@@ -41,23 +41,26 @@ public class PauseWindow : MonoBehaviour
 
     private void homeAction()
     {
+        GameManager.ResetItem();
+        Time.timeScale = 1f;
+        GameManager.Load("TitleScene");
     }
 
     public void Play()
     {
-        animator.SetBool("pause", false);
+        animator.SetInteger("pauseStatus", -1);
         state.ExitAnimation(animator, animator.GetCurrentAnimatorStateInfo(0), 0, playAction);
     }
 
     public void Replay()
     {
-        animator.SetBool("pause", false);
+        animator.SetInteger("pauseStatus", -1);
         state.ExitAnimation(animator, animator.GetCurrentAnimatorStateInfo(0), 0, replayAction);
     }
 
     public void Home()
     {
-        animator.SetBool("pause", false);
+        animator.SetInteger("pauseStatus", -1);
         state.ExitAnimation(animator, animator.GetCurrentAnimatorStateInfo(0), 0, homeAction);
     }
 
