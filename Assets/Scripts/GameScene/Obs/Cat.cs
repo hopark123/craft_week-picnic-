@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.Examples;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]

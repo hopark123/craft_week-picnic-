@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseWindow : MonoBehaviour
+public class GoalWindow : MonoBehaviour
 {
     [SerializeField]
     private StageManager stageManager;
     [SerializeField]
     private PauseButton pauseButton;
-
+    
     AnimationState state;
     Animator animator;
 
@@ -23,17 +23,19 @@ public class PauseWindow : MonoBehaviour
         animator.SetInteger("pauseStatus", 0);
     }
 
-    public void Pause()
+    public void Goal()
     {
         animator.SetInteger("pauseStatus", 1);
         pauseButton.Pause();
-        stageManager.PauseGame();
     }
 
-    private void playAction()
+    private void nextStageAction()
     {
-        stageManager.PauseGame();
-        pauseButton.Play();
+        Time.timeScale = 1.0f;
+        if (GameManager.stageNumber == 2)
+        {
+            return;
+        }
     }
 
     private void replayAction()
@@ -48,10 +50,10 @@ public class PauseWindow : MonoBehaviour
         GameManager.Load("TitleScene");
     }
 
-    public void Play()
+    public void nextStage()
     {
         animator.SetInteger("pauseStatus", -1);
-        state.ExitAnimation(animator, animator.GetCurrentAnimatorStateInfo(0), 0, playAction);
+        state.ExitAnimation(animator, animator.GetCurrentAnimatorStateInfo(0), 0, nextStageAction);
     }
 
     public void Replay()
@@ -64,14 +66,5 @@ public class PauseWindow : MonoBehaviour
     {
         animator.SetInteger("pauseStatus", -1);
         state.ExitAnimation(animator, animator.GetCurrentAnimatorStateInfo(0), 0, homeAction);
-    }
-
-    private void OnApplicationPause(bool pause)
-    {
-        if (pause)
-        {
-            if (!stageManager.Pause)
-                Pause();
-        }
     }
 }

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,18 +9,18 @@ public class EndingManager : MonoBehaviour
     private GameObject itemObjs;
     [SerializeField]
     private GameObject itemCntObj;
-    private TextMeshProUGUI itemInfo;
+    private Text itemInfo;
     [SerializeField]
     private GameObject deadTextObj;
-    private TextMeshProUGUI deadCnt;
+    private Text deadCnt;
 
     private int itemCnt;
     private int itemTotal;
 
     void Awake()
     {
-        deadCnt = deadTextObj.GetComponent<TextMeshProUGUI>();
-        itemInfo = itemCntObj.GetComponent<TextMeshProUGUI>();
+        deadCnt = deadTextObj.GetComponent<Text>();
+        itemInfo = itemCntObj.GetComponent<Text>();
     }
 
     // Start is called before the first frame update
