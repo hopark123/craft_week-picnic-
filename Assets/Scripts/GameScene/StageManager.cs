@@ -19,6 +19,8 @@ public class StageManager : MonoBehaviour
     private ItemSlot slot;
     [SerializeField]
     private GameObject playCanvus;
+    [SerializeField]
+    private GoalWindow goalWindow;
 
     public bool Pause { get; private set; } = false;
     
@@ -66,6 +68,8 @@ public class StageManager : MonoBehaviour
 
     public void Goal()
     {
+        goalWindow.Goal();
+        PauseGame();
     }
 
     public void PauseGame()
