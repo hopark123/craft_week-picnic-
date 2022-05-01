@@ -23,27 +23,19 @@ public class StageManager : MonoBehaviour
     private GoalWindow goalWindow;
 
     public bool Pause { get; private set; } = false;
-    
+
     public void Kill()
     {
-        StartCoroutine(KillPlayer());
+        player.SetActive(false);
         slot.LostItem();
         GameManager.deathCnt++;
+        Respawn();
     }
 
     public void GetItem(int index)
     {
         slot.GetItem(index);
         GameManager.GetItem(index);
-    }
-
-    IEnumerator KillPlayer()
-    {
-        yield return new WaitForSecondsRealtime(1.0f);
-
-        player.SetActive(false);
-        yield return new WaitForSecondsRealtime(2.0f);
-        Respawn();
     }
 
     void Respawn()
