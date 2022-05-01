@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
     public void Goal()
     {
         Debug.Log("game result camera");
-        GameManager.Load("EndingScene");
+        stageManager.Goal();
     }
     
     public ref Animator Animate() { return ref animator; }

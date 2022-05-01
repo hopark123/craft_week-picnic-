@@ -32,10 +32,14 @@ public class GoalWindow : MonoBehaviour
     private void nextStageAction()
     {
         Time.timeScale = 1.0f;
-        if (GameManager.stageNumber == 2)
+        if (GameManager.stageNumber < 2)
         {
+            GameManager.stageNumber++;
+            GameManager.Load("GameScene" + (GameManager.stageNumber + 1).ToString());
             return;
         }
+        GameManager.stageNumber = 0;
+        GameManager.Load("EndingScene");
     }
 
     private void replayAction()
@@ -45,8 +49,11 @@ public class GoalWindow : MonoBehaviour
 
     private void homeAction()
     {
-        GameManager.ResetItem();
         Time.timeScale = 1f;
+        if (GameManager.stageNumber < 2)
+            GameManager.stageNumber++;
+        else
+            GameManager.stageNumber = 0;
         GameManager.Load("TitleScene");
     }
 
