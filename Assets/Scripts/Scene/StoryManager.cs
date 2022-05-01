@@ -5,25 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour
 {
-    public string nextScene;
-    public GameObject timelineKey;
-    public GameObject skipMessage;
-    private bool mouseClick;
+    [SerializeField]
+    private string nextScene;
+    [SerializeField]
+    private GameObject skipMessage;
+    [SerializeField]
+    private GameObject trigger;
+    private bool skip;
 
     void Start()
     {
-        mouseClick = false;
-        timelineKey.SetActive(false);
+        skip = false;
         skipMessage.SetActive(false);
         StartCoroutine(LoadScene());
     }
 
-    private void Update()
+    public void SkipButton()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            mouseClick = true;
-        }
+        skip = true;
     }
 
     IEnumerator LoadScene()
@@ -39,7 +38,7 @@ public class StoryManager : MonoBehaviour
             {
                 if (!skipMessage.activeInHierarchy)
                     skipMessage.SetActive(true);
-                if (mouseClick || timelineKey.activeInHierarchy)
+                if (skip || trigger.activeInHierarchy)
                     asyncOperation.allowSceneActivation = true;
             }
         }

@@ -5,14 +5,13 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     private Player player;
-    
     private ContactPoint2D contact;
 
     void Awake()
     {
         player = GetComponent<Player>();
     }
-
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Hit"))
@@ -20,26 +19,32 @@ public class PlayerCollision : MonoBehaviour
             player.Hit();
             return;
         }
+    }
 
-        contact = collision.contacts[0];
-        float projection = Vector2.Dot(Vector2.down, contact.normal);
-
-        if (projection <= -0.3f && projection >= -1)// 땅의 윗부분에 충돌했는지
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        for (int i = 0; i < collision.contactCount; i++)
         {
-            //init jump
-            player.IsGround = true;
-            player.Jumpcnt = 0;
-            player.Animate().SetBool("jump", false);
-            if (collision.transform.CompareTag("Obs"))
+            contact = collision.contacts[i];
+            float projection = Vector2.Dot(Vector2.down, contact.normal);
+
+            if (projection <= -0.3f && projection >= -1)// 땅의 윗부분에 충돌했는지
             {
-                Obstacle obs = collision.transform.GetComponent<Obstacle>();
-                obs.Hit();
-                player.Jumpcnt = 2 - obs.jumpAdd;
+                //init jump
+                player.IsGround = true;
+                player.Jumpcnt = 0;
+                player.Animate().SetBool("jump", false);
+                if (collision.transform.CompareTag("Obs"))
+                {
+                    Obstacle obs = collision.transform.GetComponent<Obstacle>();
+                    obs.Hit();
+                    player.Jumpcnt = 2 - obs.jumpAdd;
+                }
             }
-        }
-        else
-        {
-            player.Hit();
+            else
+            {
+                player.Hit();
+            }
         }
     }
 

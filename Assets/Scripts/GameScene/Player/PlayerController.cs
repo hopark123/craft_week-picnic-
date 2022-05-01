@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         //init collidersize
         standSize = col.size;
         standOffset = col.offset;
-        slideSize = new Vector2(standSize.x, standSize.y / 2);
+        slideSize = new Vector2(standSize.x, standSize.y / 3);
         slideOffset = new Vector2(standOffset.x, standOffset.y - col.size.y / 4);
     }
 
