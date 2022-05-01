@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     StageManager stageManager;
+    
     Animator animator;
 
     public bool Slow { get; set; } = false;
@@ -57,18 +58,21 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Kill()
+    IEnumerator Kill()
     {
-        if (!IsAlive)
-            return;
-        IsAlive = false;
-        animator.SetBool("hit", true);
+        Debug.Log("Kill");
+        yield return new WaitForSecondsRealtime(2.0f);
         stageManager.Kill();
     }
 
     public void Hit()
     {
-        Kill();
+        if (!IsAlive)
+            return;
+        Debug.Log("Jit");
+        IsAlive = false;
+        animator.SetBool("hit", true);
+        StartCoroutine(Kill());
     }
 
     public void GetItem(GameObject itemObject)

@@ -9,13 +9,11 @@ public class GoalWindow : MonoBehaviour
     [SerializeField]
     private PauseButton pauseButton;
     
-    AnimationState state;
     Animator animator;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
-        state = animator.GetBehaviour<AnimationState>();
     }
     // Start is called before the first frame update
     void Start()
@@ -60,18 +58,18 @@ public class GoalWindow : MonoBehaviour
     public void nextStage()
     {
         animator.SetInteger("pauseStatus", -1);
-        state.ExitAnimation(animator, animator.GetCurrentAnimatorStateInfo(0), 0, nextStageAction);
+        nextStageAction();
     }
 
     public void Replay()
     {
         animator.SetInteger("pauseStatus", -1);
-        state.ExitAnimation(animator, animator.GetCurrentAnimatorStateInfo(0), 0, replayAction);
+        replayAction();
     }
 
     public void Home()
     {
         animator.SetInteger("pauseStatus", -1);
-        state.ExitAnimation(animator, animator.GetCurrentAnimatorStateInfo(0), 0, homeAction);
+        homeAction();
     }
 }
