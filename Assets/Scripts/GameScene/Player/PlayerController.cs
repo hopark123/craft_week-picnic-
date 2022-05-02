@@ -93,7 +93,8 @@ public class PlayerController : MonoBehaviour
             rd.AddForce(Vector2.up * player.jumpPower, ForceMode2D.Impulse);
 
             player.Jumpcnt++;
-            player.Animate().SetBool("jump", true);
+            player.Jump();
+            Debug.Log("jump");
         }
     }
 
@@ -101,13 +102,13 @@ public class PlayerController : MonoBehaviour
     {
         col.offset = slideOffset;
         col.size = slideSize;
-        player.Animate().SetBool("slide", true);
+        player.Slide(); ;
     }
 
     private void Stand()
     {
         col.offset = standOffset;
         col.size = standSize;
-        player.Animate().SetBool("slide", false);
+        player.Stand();
     }
 }

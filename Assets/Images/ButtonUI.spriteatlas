@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ButtonUI
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: WebGL
+      m_MaxTextureSize: 512
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 12
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: c915d8a8fc042455fa9a4b2fb1ded2c6, type: 3}
+    - {fileID: 2800000, guid: 38e844474ed304ebe9fd98aaada8dcf7, type: 3}
+    - {fileID: 2800000, guid: 5ddc68121624542099cd8d4a1026de7a, type: 3}
+    - {fileID: 2800000, guid: c94eb9570dec546f2ac965988b947feb, type: 3}
+    - {fileID: 2800000, guid: 8eb46dfa332c143a98291e97dbbb7ab3, type: 3}
+    - {fileID: 2800000, guid: f086e5b086ef74589a4d54062308f24f, type: 3}
+    - {fileID: 2800000, guid: 511972438f18f43548c71e4b05084c5d, type: 3}
+    - {fileID: 2800000, guid: 9fe803439cc4543be86ca5b8fcd44c0a, type: 3}
+    - {fileID: 2800000, guid: 0ab25d6ba19284cb2960b55712354853, type: 3}
+    - {fileID: 2800000, guid: d10873dfddba042929b126b0b94e7eb8, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f086e5b086ef74589a4d54062308f24f, type: 3}
+  - {fileID: 21300000, guid: 5ddc68121624542099cd8d4a1026de7a, type: 3}
+  - {fileID: 21300000, guid: 511972438f18f43548c71e4b05084c5d, type: 3}
+  - {fileID: 21300000, guid: 9fe803439cc4543be86ca5b8fcd44c0a, type: 3}
+  - {fileID: 21300000, guid: 38e844474ed304ebe9fd98aaada8dcf7, type: 3}
+  - {fileID: 21300000, guid: c94eb9570dec546f2ac965988b947feb, type: 3}
+  - {fileID: 21300000, guid: c915d8a8fc042455fa9a4b2fb1ded2c6, type: 3}
+  - {fileID: 21300000, guid: 8eb46dfa332c143a98291e97dbbb7ab3, type: 3}
+  - {fileID: 21300000, guid: 0ab25d6ba19284cb2960b55712354853, type: 3}
+  - {fileID: 21300000, guid: d10873dfddba042929b126b0b94e7eb8, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - button_jump
+  - button_pause
+  - button_slide
+  - button_start
+  - button_next
+  - button_replay
+  - button_home
+  - pauseButton_1
+  - skip_button
+  - button_title
+  m_RenderDataMap: {}
+  m_Tag: ButtonUI
+  m_IsVariant: 0
