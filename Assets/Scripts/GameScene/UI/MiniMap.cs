@@ -12,7 +12,7 @@ public class MiniMap : MonoBehaviour
     private float mapLength;
     private float pos = 0.0f;
 
-    private Slider slider;
+    private Slider slider = null;
 
     void Awake()
     {
@@ -29,6 +29,7 @@ public class MiniMap : MonoBehaviour
     void LateUpdate()
     {
         pos = (player.transform.position.x - respawnPoint.transform.position.x) / mapLength;
-        slider.value = pos;
+        if (slider != null)
+            slider.value = pos;
     }
 }

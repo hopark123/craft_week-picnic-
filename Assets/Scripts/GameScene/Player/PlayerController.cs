@@ -12,9 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Button slideButton;
 
-    private Player player;
-    private Rigidbody2D rd;
-    private BoxCollider2D col;
+    private Player player = null;
+    private Rigidbody2D rd = null;
+    private BoxCollider2D col = null;
 
     private Vector2 standSize;
     private Vector2 slideSize;
@@ -26,12 +26,16 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         player = GetComponent<Player>();
-        rd = player.GetComponent<Rigidbody2D>();
-        col = player.GetComponent<BoxCollider2D>();
     }
 
     void Start()
     {
+        if (player != null)
+        {
+            rd = player.GetComponent<Rigidbody2D>();
+            col = player.GetComponent<BoxCollider2D>();
+        }
+
         //register controller button
         //jumpButton.onClick.AddListener(Jump);
         EventTrigger jmpTrigger = jumpButton.gameObject.AddComponent<EventTrigger>();
@@ -65,13 +69,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (player.IsAlive)
+        if (player != null && player.IsAlive)
             Move();
     }
 
     private void FixedUpdate()
     {
-        if (jump && player.IsAlive)
+        if (jump && player != null && player.IsAlive)
         {
             JumpAction();
             jump = false;
@@ -80,35 +84,44 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        player.transform.Translate(Vector3.right * player.moveSpeed * Time.deltaTime);
+        if (player != null)
+            player.transform.Translate(Vector3.right * player.moveSpeed * Time.deltaTime);
     }
 
     private void Jump() => jump = true;
 
     private void JumpAction()
     {
-        if (player.Jumpcnt < player.MaxJumpCnt)
+        if (player != null && rd != null)
         {
-            rd.velocity = new Vector2(rd.velocity.x, 0);
-            rd.AddForce(Vector2.up * player.jumpPower, ForceMode2D.Impulse);
+            if (player.Jumpcnt < player.MaxJumpCnt)
+            {
+                rd.velocity = new Vector2(rd.velocity.x, 0);
+                rd.AddForce(Vector2.up * player.jumpPower, ForceMode2D.Impulse);
 
-            player.Jumpcnt++;
-            player.Jump();
-            Debug.Log("jump");
+                player.Jumpcnt++;
+                player.Jump();
+            }
         }
     }
 
     private void Slide()
     {
-        col.offset = slideOffset;
-        col.size = slideSize;
-        player.Slide(); ;
+        if (col != null && player != null)
+        {
+            col.offset = slideOffset;
+            col.size = slideSize;
+            player.Slide(); ;
+        }
     }
 
     private void Stand()
     {
-        col.offset = standOffset;
-        col.size = standSize;
-        player.Stand();
+        if (col != null && player != null)
+        {
+            col.offset = standOffset;
+            col.size = standSize;
+            player.Stand();
+        }
     }
 }

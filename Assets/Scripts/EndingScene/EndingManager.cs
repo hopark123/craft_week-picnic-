@@ -8,20 +8,13 @@ public class EndingManager : MonoBehaviour
     [SerializeField]
     private GameObject itemObjs;
     [SerializeField]
-    private GameObject itemCntObj;
     private Text itemInfo;
     [SerializeField]
-    private GameObject deadTextObj;
     private Text deadCnt;
 
     private int itemCnt;
     private int itemTotal;
 
-    void Awake()
-    {
-        deadCnt = deadTextObj.GetComponent<Text>();
-        itemInfo = itemCntObj.GetComponent<Text>();
-    }
 
     // Start is called before the first frame update
     void Start()

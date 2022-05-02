@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Cat : Obstacle
 {
-    BoxCollider2D col;
+    BoxCollider2D col = null;
 
     protected override void Awake()
     {
@@ -16,14 +16,17 @@ public class Cat : Obstacle
     protected override void OnEnable()
     {
         base.OnEnable();
-        col.enabled = true;
+        if (col != null)
+            col.enabled = true;
     }
 
     public override void Hit()
     {
         base.Hit();
-        animator.SetBool("hit", true);
-        col.enabled = false;
+        if (animator != null)
+            animator.SetBool("hit", true);
+        if (col != null)
+            col.enabled = false;
         StartCoroutine(Kill());
     }
 

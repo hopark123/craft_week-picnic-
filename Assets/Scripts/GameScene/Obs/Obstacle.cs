@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Obstacle : MonoBehaviour
 {
-    protected Animator animator;
+    protected Animator animator = null;
 
     public bool IsAlive { get; private set; }
     public uint jumpAdd { get; protected set; } = 1;

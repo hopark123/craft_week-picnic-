@@ -63,5 +63,5 @@ SpriteAtlas:
   - pauseWindow_1
   - clear_stage-3
   m_RenderDataMap: {}
-  m_Tag: UI
+  m_Tag: windowUI
   m_IsVariant: 0

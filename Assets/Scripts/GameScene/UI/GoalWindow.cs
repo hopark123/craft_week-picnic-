@@ -9,7 +9,7 @@ public class GoalWindow : MonoBehaviour
     [SerializeField]
     private PauseButton pauseButton;
     
-    Animator animator;
+    Animator animator = null;
 
     void Awake()
     {
@@ -18,17 +18,28 @@ public class GoalWindow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator.SetInteger("pauseStatus", 0);
+        if (animator != null)
+            animator.SetInteger("pauseStatus", 0);
     }
 
     public void Goal()
     {
-        animator.SetInteger("pauseStatus", 1);
+        if (animator != null)
+            animator.SetInteger("pauseStatus", 1);
         pauseButton.Pause();
     }
 
-    private void nextStageAction()
+    public void Replay()
     {
+        if (animator != null)
+            animator.SetInteger("pauseStatus", -1);
+        stageManager.Restart();
+    }
+
+    public void nextStage()
+    {
+        if (animator != null)
+            animator.SetInteger("pauseStatus", -1);
         Time.timeScale = 1.0f;
         if (GameManager.stageNumber < 2)
         {
@@ -40,36 +51,15 @@ public class GoalWindow : MonoBehaviour
         GameManager.Load("EndingScene");
     }
 
-    private void replayAction()
+    public void Home()
     {
-        stageManager.Restart();
-    }
-
-    private void homeAction()
-    {
+        if (animator != null)
+            animator.SetInteger("pauseStatus", -1);
         Time.timeScale = 1f;
         if (GameManager.stageNumber < 2)
             GameManager.stageNumber++;
         else
             GameManager.stageNumber = 0;
         GameManager.Load("TitleScene");
-    }
-
-    public void nextStage()
-    {
-        animator.SetInteger("pauseStatus", -1);
-        nextStageAction();
-    }
-
-    public void Replay()
-    {
-        animator.SetInteger("pauseStatus", -1);
-        replayAction();
-    }
-
-    public void Home()
-    {
-        animator.SetInteger("pauseStatus", -1);
-        homeAction();
     }
 }

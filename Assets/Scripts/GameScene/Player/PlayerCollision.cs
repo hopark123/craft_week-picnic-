@@ -22,7 +22,6 @@ public class PlayerCollision : MonoBehaviour
         float projection = Vector2.Dot(Vector2.down, contact.normal);
         if (projection <= -0.3f && projection >= -1)// 땅의 윗부분에 충돌했는지
         {
-            Debug.Log("jump init");
             //init jump
             player.IsGround = true;
             player.Jumpcnt = 0;

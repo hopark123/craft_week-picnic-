@@ -6,30 +6,18 @@ using UnityEngine.UI;
 public class ItemSlot : MonoBehaviour
 {
     [SerializeField]
-    private GameObject items;
-    [SerializeField]
     private Sprite itemDestroyed;
-
+    [SerializeField]
     private Image[] slots;
 
     private Color on = Color.white;
-    private Color init = new Color(0.3f, 0.3f, 0.3f, 0.3f);
-
-    void Awake()
-    {
-        slots = new Image[transform.childCount];
-        for (int i = 0; i < transform.childCount; ++i)
-        {
-            slots[i] = transform.GetChild(i).GetChild(0).GetComponent<Image>();
-        }
-    }
+    private Color init = new (0.3f, 0.3f, 0.3f, 0.3f);
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < items.transform.childCount; ++i)
+        for (int i = 0; i < slots.Length; ++i)
         {
-            slots[i].sprite = items.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite;
             slots[i].color = init;
         }
     }

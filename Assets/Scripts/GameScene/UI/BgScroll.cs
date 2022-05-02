@@ -5,24 +5,19 @@ using UnityEngine;
 
 public class BgScroll : MonoBehaviour
 {
-    Material mat;
+    Material mat = null;
     Vector2 offset;
-    
     [SerializeField]
     private float velocity;
 
-    void Awake()
-    {
-        mat = GetComponent<Renderer>().material;
-    }
-
     void Start()
     {
+        mat = GetComponent<Renderer>().material;
         offset = new Vector2(velocity, 0);
     }
 
     void LateUpdate()
     {
-        mat.mainTextureOffset += offset * Time.deltaTime;
+        if (mat != null) mat.mainTextureOffset += offset * Time.deltaTime;
     }
 }

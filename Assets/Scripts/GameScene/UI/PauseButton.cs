@@ -8,31 +8,38 @@ public class PauseButton : MonoBehaviour
     public StageManager stageManager;
     public Sprite pauseImg;
 
-    Image buttonImg;
-    Button button;
+    Image buttonImg = null;
+    Button button = null;
 
     void Awake()
     {
         buttonImg = GetComponent<Image>();
         button = GetComponent<Button>();
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        buttonImg.sprite = pauseImg;
+        if (buttonImg != null)
+            buttonImg.sprite = pauseImg;
     }
 
     public void Pause()
     {
-        buttonImg.enabled = false;
-        button.enabled = false;
+        if (buttonImg != null)
+            buttonImg.enabled = false;
+        if (button != null)
+            button.enabled = false;
     }
 
     public void Play()
     {
-        buttonImg.enabled = true;
-        button.enabled = true;
-        buttonImg.sprite = pauseImg;
+        if (buttonImg != null)
+        {
+            buttonImg.enabled = true;
+            buttonImg.sprite = pauseImg;
+        }
+        if (button != null)
+            button.enabled = true;
     }
 }
