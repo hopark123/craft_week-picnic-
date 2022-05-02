@@ -87,6 +87,24 @@ public class Player : MonoBehaviour
         Debug.Log("game result camera");
         stageManager.Goal();
     }
+
+    public void Jump()
+    {
+        animator.SetBool("jump", true);
+    }
+
+    public void JumpEnd()
+    {
+        animator.SetBool("jump", false);
+    }
     
-    public ref Animator Animate() { return ref animator; }
+    public void Slide()
+    {
+        animator.SetBool("slide", true);
+    }
+
+    public void Stand()
+    {
+        animator.SetBool("slide", false);
+    }
 }
