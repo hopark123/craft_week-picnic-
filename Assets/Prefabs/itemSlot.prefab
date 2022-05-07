@@ -143,7 +143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -135712417, guid: a76a0c56d74aa4c6cb147a73570d2cc8, type: 3}
+  m_Sprite: {fileID: -495335847, guid: 98f656cca9eac480bb812bbd650b8b31, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 999321260, guid: a76a0c56d74aa4c6cb147a73570d2cc8, type: 3}
+  m_Sprite: {fileID: 1134062247, guid: 98f656cca9eac480bb812bbd650b8b31, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -515,6 +515,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items: {fileID: 0}
   itemDestroyed: {fileID: 21300000, guid: 632bb7290c6a146418c37239d4bd443d, type: 3}
+  slots:
+  - {fileID: 1412206742676451049}
+  - {fileID: 1412206741826810930}
+  - {fileID: 1412206743032489791}
+  - {fileID: 1412206743161713646}
 --- !u!1 &1412206743032489789
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1214941356, guid: a76a0c56d74aa4c6cb147a73570d2cc8, type: 3}
+  m_Sprite: {fileID: 1103693407, guid: 98f656cca9eac480bb812bbd650b8b31, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -657,7 +662,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1297911647, guid: a76a0c56d74aa4c6cb147a73570d2cc8, type: 3}
+  m_Sprite: {fileID: 108973121, guid: 98f656cca9eac480bb812bbd650b8b31, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
