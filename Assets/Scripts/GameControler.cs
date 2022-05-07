@@ -98,7 +98,7 @@ public class GameControler : MonoBehaviour
     public void GoNextStage()
     {
         playGame();
-        if (GameModel.StageNumber < GameModel.STAGE_SIZE)
+        if (GameModel.StageNumber < GameModel.STAGE_SIZE - 1)
         {
             GameModel.StageNumber++;
             GameModel.Load("GameScene" + (GameModel.StageNumber + 1).ToString());

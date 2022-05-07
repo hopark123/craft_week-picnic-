@@ -37,4 +37,10 @@ public class EndingView : MonoBehaviour
         }
         return itemCnt;
     }
+
+    public void NewGame()
+    {
+        GameModel.ResetGame();
+        GameModel.Load("TitleScene");
+    }
 }
