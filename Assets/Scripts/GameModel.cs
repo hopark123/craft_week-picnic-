@@ -38,6 +38,20 @@ public static class GameModel
             LostItem(i);
     }
 
+    public static void ResetGame()
+    {
+        for (int i = 0; i < STAGE_SIZE; i++)
+        {
+            for (int j = 0; j < ITEM_SIZE; j++)
+            {
+                Itemlst[i, j] = false;
+            }
+        }
+        DeadCnt = 0;
+        FirstStart = true;
+        StageNumber = 0;  
+    }
+
     //game method
     public static void Dead()
     {

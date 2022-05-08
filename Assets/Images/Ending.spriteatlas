@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ending
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: iPhone
+      m_MaxTextureSize: 512
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 47
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: d52064c1972af4d0691503be480e319e, type: 3}
+    - {fileID: 2800000, guid: 7ba39d2ad7bd2457982e3f2241e106f4, type: 3}
+    - {fileID: 2800000, guid: 60d3d12e8cd474a36992dc5b37ddaecf, type: 3}
+    - {fileID: 2800000, guid: 2df28f6f866df485694a61179b53534b, type: 3}
+    - {fileID: 2800000, guid: 6871fc800cb3940baaf6f5e097eb420d, type: 3}
+    - {fileID: 2800000, guid: eb45642f6cb0a42379af65f60158706a, type: 3}
+    - {fileID: 2800000, guid: 5013738aec62842a2835506c4347b8d6, type: 3}
+    - {fileID: 2800000, guid: ae28f40f5109f46ed994e186a09f773a, type: 3}
+    - {fileID: 2800000, guid: b0396c4868b284d5daf1ec4d05d0b45c, type: 3}
+    - {fileID: 2800000, guid: c3ec14344440240ec9926ab0d47be1ec, type: 3}
+    - {fileID: 2800000, guid: ddccbf32ae64c43dda82e49ae7ff20c9, type: 3}
+    - {fileID: 2800000, guid: 6c5e1bb47f2d34db1a0d299c1ecc0765, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 6871fc800cb3940baaf6f5e097eb420d, type: 3}
+  - {fileID: 21300000, guid: d52064c1972af4d0691503be480e319e, type: 3}
+  - {fileID: 21300000, guid: ddccbf32ae64c43dda82e49ae7ff20c9, type: 3}
+  - {fileID: 21300000, guid: c3ec14344440240ec9926ab0d47be1ec, type: 3}
+  - {fileID: 21300000, guid: 6c5e1bb47f2d34db1a0d299c1ecc0765, type: 3}
+  - {fileID: 21300000, guid: b0396c4868b284d5daf1ec4d05d0b45c, type: 3}
+  - {fileID: 21300000, guid: 7ba39d2ad7bd2457982e3f2241e106f4, type: 3}
+  - {fileID: 21300000, guid: 5013738aec62842a2835506c4347b8d6, type: 3}
+  - {fileID: 21300000, guid: 60d3d12e8cd474a36992dc5b37ddaecf, type: 3}
+  - {fileID: 21300000, guid: ae28f40f5109f46ed994e186a09f773a, type: 3}
+  - {fileID: 21300000, guid: eb45642f6cb0a42379af65f60158706a, type: 3}
+  - {fileID: 21300000, guid: 2df28f6f866df485694a61179b53534b, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - item_tomato
+  - item_craftA
+  - item_craftE_1
+  - item_sandwich
+  - item_bucket 1
+  - item_kimbap
+  - item_craftB
+  - item_flowerB
+  - item_craftC
+  - item_flowerC
+  - item_flowerA
+  - item_craftD
+  m_RenderDataMap: {}
+  m_Tag: Ending
+  m_IsVariant: 0

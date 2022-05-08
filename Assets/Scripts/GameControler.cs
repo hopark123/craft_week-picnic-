@@ -51,11 +51,14 @@ public class GameControler : MonoBehaviour
     //GameUI
     private void pauseGame()
     {
-        IsPause = !IsPause;
-        if (IsPause)
-            Time.timeScale = 0f;
-        else
-            Time.timeScale = 1f;
+        IsPause = true;
+        Time.timeScale = 0f;
+    }
+
+    private void playGame()
+    {
+        IsPause = false;
+        Time.timeScale = 1f;
     }
     
     public void Pause()
@@ -67,13 +70,13 @@ public class GameControler : MonoBehaviour
     public void Play()
     {
         gameView.Pause_Close();
-        pauseGame();
+        playGame();
     }
     //SceneControl
     public void ReStart()
     {
         gameView.Pause_Close();
-        pauseGame();
+        playGame();
         GameModel.Load(SceneManager.GetActiveScene().name);
     }
 
@@ -82,7 +85,7 @@ public class GameControler : MonoBehaviour
     {
         gameView.Pause_Close();
         GameModel.ResetStageItem();
-        pauseGame();
+        playGame();
         GameModel.Load("TitleScene");
     }
 
@@ -94,8 +97,8 @@ public class GameControler : MonoBehaviour
 
     public void GoNextStage()
     {
-        pauseGame();
-        if (GameModel.StageNumber < GameModel.STAGE_SIZE)
+        playGame();
+        if (GameModel.StageNumber < GameModel.STAGE_SIZE - 1)
         {
             GameModel.StageNumber++;
             GameModel.Load("GameScene" + (GameModel.StageNumber + 1).ToString());
@@ -108,9 +111,9 @@ public class GameControler : MonoBehaviour
 
     public void GoHome_C()
     {
+        playGame();
         if (GameModel.StageNumber < GameModel.STAGE_SIZE)
             GameModel.StageNumber++;
-        pauseGame();
         GameModel.Load("TitleScene");
     }
 
@@ -140,10 +143,9 @@ public class GameControler : MonoBehaviour
 
     private void OnApplicationPause(bool pause)
     {
-        if (pause)
+        if (pause && !IsPause)
         {
-            if (!IsPause)
-                pauseGame();
+            Pause();
         }
     }
 }
