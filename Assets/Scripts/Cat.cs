@@ -6,7 +6,7 @@ using UnityEngine;
 public class Cat : Obstacle
 {
     BoxCollider2D col = null;
-
+    public AudioClip CatClip;
     protected override void Awake()
     {
         base.Awake();
@@ -23,6 +23,7 @@ public class Cat : Obstacle
     public override void Hit()
     {
         base.Hit();
+        SoundController.instance.SFXPlay("Cat", CatClip);
         if (animator != null)
             animator.SetBool("hit", true);
         if (col != null)

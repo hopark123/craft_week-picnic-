@@ -27,6 +27,12 @@ public class PlayerControler : MonoBehaviour
     //private field
     private bool jmpOrder = false;
 
+    //Audio Clip
+    public AudioClip JumpClip;
+    public AudioClip ItemClip;
+    public AudioClip GoalClip;
+
+
     void Awake()
     {
         //player
@@ -111,6 +117,7 @@ public class PlayerControler : MonoBehaviour
             //control
             if (rd != null)
             {
+                SoundController.instance.SFXPlay("Jump", JumpClip);
                 rd.velocity = new Vector2(rd.velocity.x, 0);
                 rd.AddForce(Vector2.up * pModel.JumpPower, ForceMode2D.Impulse);
             }
@@ -215,11 +222,13 @@ public class PlayerControler : MonoBehaviour
     {
         if (collision.CompareTag("item"))
         {
+            SoundController.instance.SFXPlay("Item", ItemClip);
             gameControler.EatItem(collision.gameObject);
             collision.gameObject.SetActive(false);
         }
         if (collision.CompareTag("Goal"))
         {
+            SoundController.instance.SFXPlay("Goal", GoalClip);
             gameControler.Goal();
         }
         if (collision.transform.CompareTag("Slow"))

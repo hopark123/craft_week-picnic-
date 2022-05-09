@@ -3,7 +3,8 @@ guid: 4bc2dfc8c8d2c4efcabb80034de2a520
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - BirdClip: {fileID: 8300000, guid: 93eedafe4f0b54b69b8bb6439ed2449d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

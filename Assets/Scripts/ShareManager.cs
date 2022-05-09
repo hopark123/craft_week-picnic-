@@ -13,9 +13,11 @@ public class ShareManager : MonoBehaviour
     {
         blackScreen.gameObject.SetActive(false);
     }
+    public AudioClip CaptureClip;
 
     public void CaptureScreenForMobile(string fileName)
     {
+        SoundController.instance.SFXPlay("Capture", CaptureClip);
         Texture2D texture = ScreenCapture.CaptureScreenshotAsTexture();
 
         // do something with texture

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Bird : Obstacle
 {
     BoxCollider2D col = null;
+    public AudioClip BirdClip;
 
     protected override void Awake()
     {
@@ -23,6 +24,7 @@ public class Bird : Obstacle
     public override void Hit()
     {
         base.Hit();
+        SoundController.instance.SFXPlay("Bird", BirdClip);
         if (animator != null)
             animator.SetBool("hit", true);
         if (col != null)

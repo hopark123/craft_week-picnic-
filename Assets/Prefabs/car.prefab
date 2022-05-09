@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2a3424666224677a7860e3dbcbcb22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CarClip: {fileID: 8300000, guid: 6608f0365b20344318ade5f68417ba9e, type: 3}
 --- !u!68 &7116340081464815404
 EdgeCollider2D:
   m_ObjectHideFlags: 0
