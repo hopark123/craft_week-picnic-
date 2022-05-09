@@ -29,6 +29,7 @@ public class Car : Obstacle
     public override void Hit()
     {
         base.Hit();
+
         if (animator != null)
             animator.SetBool("hit", true);
         if (animator != null)
