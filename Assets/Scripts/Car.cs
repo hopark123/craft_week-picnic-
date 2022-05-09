@@ -7,6 +7,7 @@ public class Car : Obstacle
 {
     EdgeCollider2D col = null;
     GameObject particle = null;
+    public AudioClip CarClip;
 
     protected override void Awake()
     {
@@ -29,9 +30,11 @@ public class Car : Obstacle
     public override void Hit()
     {
         base.Hit();
-
-        if (animator != null)
+        if (animator.GetBool("hit") == false)
+            SoundController.instance.SFXPlay("Car", CarClip);
+        if (animator != null) {
             animator.SetBool("hit", true);
+        }
         if (animator != null)
             particle.SetActive(true);
         StartCoroutine(Kill());

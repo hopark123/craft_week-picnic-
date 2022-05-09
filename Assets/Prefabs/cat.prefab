@@ -145,3 +145,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068573e6a33c043a292109667cdf657d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CatClip: {fileID: 8300000, guid: c1ace2f76317c4e319689ceda066f0ba, type: 3}

@@ -5,8 +5,11 @@ using System.IO;
 
 public class ShareManager : MonoBehaviour
 {
+    public AudioClip CaptureClip;
+
     public void CaptureScreenForMobile(string fileName)
     {
+        SoundController.instance.SFXPlay("Capture", CaptureClip);
         Texture2D texture = ScreenCapture.CaptureScreenshotAsTexture();
 
         // do something with texture
