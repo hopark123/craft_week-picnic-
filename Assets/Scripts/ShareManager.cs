@@ -1,10 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
 
 public class ShareManager : MonoBehaviour
 {
+    [SerializeField]
+    Image blackScreen;
+
+    void Start()
+    {
+        blackScreen.gameObject.SetActive(false);
+    }
+
     public void CaptureScreenForMobile(string fileName)
     {
         Texture2D texture = ScreenCapture.CaptureScreenshotAsTexture();
@@ -12,6 +21,7 @@ public class ShareManager : MonoBehaviour
         // do something with texture
         string albumName = "BRUNCH";
         NativeGallery.Permission permission = NativeGallery.CheckPermission(NativeGallery.PermissionType.Write);
+        blackScreen.gameObject.SetActive(true);
         Screen.orientation = ScreenOrientation.Portrait;
 
         if (permission == NativeGallery.Permission.Denied)
@@ -59,6 +69,7 @@ public class ShareManager : MonoBehaviour
         //    //.SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
             .Share();
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+        blackScreen.gameObject.SetActive(false);
         Object.Destroy(ss);
         // Share on WhatsApp only, if installed (Android only)
         //if( NativeShare.TargetExists( "com.whatsapp" ) )
