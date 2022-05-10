@@ -2229,6 +2229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackScreen: {fileID: 1301211079}
+  CaptureClip: {fileID: 8300000, guid: edf2ff147785348c284d9559b697a87c, type: 3}
 --- !u!1 &2033121280
 GameObject:
   m_ObjectHideFlags: 0
