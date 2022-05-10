@@ -35,7 +35,7 @@ SpriteAtlas:
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     - serializedVersion: 3
       m_BuildTarget: iPhone
-      m_MaxTextureSize: 1024
+      m_MaxTextureSize: 512
       m_ResizeAlgorithm: 0
       m_TextureFormat: 47
       m_TextureCompression: 1
