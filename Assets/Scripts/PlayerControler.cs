@@ -30,8 +30,8 @@ public class PlayerControler : MonoBehaviour
     //Audio Clip
     public AudioClip JumpClip;
     public AudioClip ItemClip;
+    public AudioClip SlideClip;
     public AudioClip GoalClip;
-
 
     void Awake()
     {
@@ -151,8 +151,11 @@ public class PlayerControler : MonoBehaviour
 
     void PressSlideButtonDown()
     {
+        GameObject obj1 = GameObject.Find("Slidesound");
         if (pModel.Slide())
         {
+            if (!obj1)
+                SoundController.instance.SFXPlay("Slide", SlideClip);
             pView.Slide();
             //control
             (col.size, col.offset) = pModel.PlayerBox;
@@ -161,8 +164,11 @@ public class PlayerControler : MonoBehaviour
     
     void PressSlideButtonUp()
     {
+        GameObject obj1 = GameObject.Find("Slidesound");
         if (pModel.IsSlide)
         {
+            if (obj1)
+                Destroy(obj1);
             pModel.IsSlide = false;
             pView.SlideEnd();
             //control
