@@ -14,6 +14,7 @@ public class StoryManager : MonoBehaviour
     [SerializeField] 
     private GameObject skipMessage;
     private bool skip;
+    public AudioClip[] Clip;
 
     void Start()
     {
@@ -37,8 +38,17 @@ public class StoryManager : MonoBehaviour
         int i = 0;
         do
         {
+            SoundController.instance.SFXPlay("clip" + i, Clip[i]);
             cutScenes[i].SetActive(true);
-            yield return new WaitForSecondsRealtime(3.0f);
+
+            if (i == 0)
+                yield return new WaitForSecondsRealtime(3.5f);
+            else if (i == 2)
+                yield return new WaitForSecondsRealtime(4.0f);
+            else if (i == 3)
+                yield return new WaitForSecondsRealtime(1.8f);
+            else
+                yield return new WaitForSecondsRealtime(2.8f);
             i++;
         }
         while (i < cutScenes.Length);

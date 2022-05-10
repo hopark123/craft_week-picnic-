@@ -53,12 +53,14 @@ public class GameControler : MonoBehaviour
     {
         IsPause = true;
         Time.timeScale = 0f;
+        //SoundController.instance.BgSoundStop();
     }
 
     private void playGame()
     {
         IsPause = false;
         Time.timeScale = 1f;
+        //SoundController.instance.BgSoundRestart();
     }
     
     public void Pause()
@@ -101,6 +103,7 @@ public class GameControler : MonoBehaviour
         if (GameModel.StageNumber < GameModel.STAGE_SIZE - 1)
         {
             GameModel.StageNumber++;
+            Debug.Log("GameScene" + (GameModel.StageNumber + 1).ToString());
             GameModel.Load("GameScene" + (GameModel.StageNumber + 1).ToString());
         }
         else
