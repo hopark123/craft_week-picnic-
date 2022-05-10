@@ -106,7 +106,7 @@ public class PlayerControler : MonoBehaviour
     void Move()
     {
         if (pModel.IsAlive)
-            transform.Translate(pModel.MoveSpeed * Time.deltaTime * Vector2.right);
+            transform.Translate((pModel.MoveSpeed + GameModel.StageNumber) * Time.deltaTime * Vector2.right);
     }
 
     void Jump()
@@ -129,7 +129,6 @@ public class PlayerControler : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.0f);
         pView.HitEnd();
         gameControler.RespawnMap();
-        gameControler.LoseItem();
         transform.position = respawnPoint.position;
         pModel.IsAlive = true;
     }
