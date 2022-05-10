@@ -7,29 +7,29 @@ public class SoundController : MonoBehaviour
 {
 
     public static SoundController instance;
-    public AudioSource bgSound;
-    public AudioClip[] bglist;
+    //public AudioSource bgSound;
+    //public AudioClip[] bglist;
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(instance);
-            SceneManager.sceneLoaded += OnSceneLoad;
+            //SceneManager.sceneLoaded += OnSceneLoad;
 
         }
         else
             Destroy(gameObject);
     }
 
-    private void OnSceneLoad(Scene arg0, LoadSceneMode arg1)
-    {
-        for (int i = 0; i < bglist.Length; ++i)
-        {
-            if (arg0.name == bglist[i].name)
-                BgSoundPlay(bglist[i]);
-        }
-    }
+    //private void OnSceneLoad(Scene arg0, LoadSceneMode arg1)
+    //{
+    //    for (int i = 0; i < bglist.Length; ++i)
+    //    {
+    //        if (arg0.name == bglist[i].name)
+    //            BgSoundPlay(bglist[i]);
+    //    }
+    //}
 
     public void SFXPlay(string sfxName, AudioClip clip)
     {
@@ -42,13 +42,13 @@ public class SoundController : MonoBehaviour
     }
 
 
-    public void BgSoundPlay(AudioClip clip)
-    {
-        bgSound.clip = clip;
-        bgSound.loop = true;
-        bgSound.volume = 0.1f;
-        bgSound.Play();
-    }
+    //public void BgSoundPlay(AudioClip clip)
+    //{
+    //    bgSound.clip = clip;
+    //    bgSound.loop = true;
+    //    bgSound.volume = 0.1f;
+    //    bgSound.Play();
+    //}
 
     public void BgSoundStop()
     {
