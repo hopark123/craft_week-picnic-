@@ -37,9 +37,10 @@ public class SoundController : MonoBehaviour
         AudioSource audioSource = sound.AddComponent<AudioSource>();
         audioSource.clip = clip;
         audioSource.Play();
-        Destroy(sound, clip.length);
-
+        if (sound)
+            Destroy(sound, clip.length);
     }
+
 
     public void BgSoundPlay(AudioClip clip)
     {
@@ -47,7 +48,16 @@ public class SoundController : MonoBehaviour
         bgSound.loop = true;
         bgSound.volume = 0.1f;
         bgSound.Play();
+    }
 
+    public void BgSoundStop()
+    {
+        SoundController.instance.GetComponent<AudioSource>().volume = 0.0f;
+    }
+
+    public void BgSoundRestart()
+    {
+        SoundController.instance.GetComponent<AudioSource>().volume = 1.0f;
     }
 }
 
