@@ -13,6 +13,7 @@ public class BackGroundScroll : MonoBehaviour
     void Start()
     {
         mat = GetComponent<Renderer>().material;
+        mat.mainTextureOffset = new Vector2(-0.5f, 0f);
         offset = new Vector2(velocity, 0);
     }
 

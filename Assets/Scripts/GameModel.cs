@@ -27,7 +27,7 @@ public static class GameModel
         Itemlst[StageNumber, itemIdx] = true;
     }
 
-    public static void LostItem(int itemIdx)
+    public static void DeleteItem(int itemIdx)
     {
         Itemlst[StageNumber, itemIdx] = false;
     }
@@ -35,7 +35,7 @@ public static class GameModel
     public static void ResetStageItem()
     {
         for (int i = 0; i < ITEM_SIZE; i++)
-            LostItem(i);
+            DeleteItem(i);
     }
 
     public static void ResetGame()

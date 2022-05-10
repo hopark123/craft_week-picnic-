@@ -34,7 +34,7 @@ public class GameControler : MonoBehaviour
         gameView.ActivateSlot(i);
     }
 
-    public void LoseItem()
+    public void LostItem()
     {
         for (int i = 0; i < GameModel.ITEM_SIZE; i++)
         {
@@ -42,7 +42,7 @@ public class GameControler : MonoBehaviour
                 continue;
             else
             {
-                GameModel.LostItem(i);
+                GameModel.DeleteItem(i);
                 gameView.DisableSlot(i);
                 break;
             }
@@ -53,14 +53,14 @@ public class GameControler : MonoBehaviour
     {
         IsPause = true;
         Time.timeScale = 0f;
-        //SoundController.instance.BgSoundStop();
+        SoundController.instance.BgSoundStop();
     }
 
     private void playGame()
     {
         IsPause = false;
         Time.timeScale = 1f;
-        //SoundController.instance.BgSoundRestart();
+        SoundController.instance.BgSoundRestart();
     }
     
     public void Pause()
@@ -124,6 +124,7 @@ public class GameControler : MonoBehaviour
 
     public void Dead()
     {
+        LostItem();
         GameModel.Dead();
     }
     
