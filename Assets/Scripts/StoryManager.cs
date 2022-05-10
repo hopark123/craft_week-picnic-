@@ -40,12 +40,15 @@ public class StoryManager : MonoBehaviour
         {
             SoundController.instance.SFXPlay("clip" + i, Clip[i]);
             cutScenes[i].SetActive(true);
-            if(i != 2 && i != 3)
-                yield return new WaitForSecondsRealtime(2.8f);
-            if (i == 2)
+
+            if (i == 0)
+                yield return new WaitForSecondsRealtime(3.5f);
+            else if (i == 2)
                 yield return new WaitForSecondsRealtime(4.0f);
-            if (i == 3)
+            else if (i == 3)
                 yield return new WaitForSecondsRealtime(1.8f);
+            else
+                yield return new WaitForSecondsRealtime(2.8f);
             i++;
         }
         while (i < cutScenes.Length);
