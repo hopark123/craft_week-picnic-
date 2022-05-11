@@ -32,35 +32,42 @@ public class GameControler : MonoBehaviour
         int i = Convert.ToInt32(obj.name);
         GameModel.EatItem(i);
         gameView.ActivateSlot(i);
+        for (int j = 0; j < GameModel.ITEM_SIZE; j++)
+            Debug.Log("eatitem :" + GameModel.GetItemStatus(j));
     }
 
     public void LostItem()
     {
         for (int i = 0; i < GameModel.ITEM_SIZE; i++)
         {
+            Debug.Log(i);
             if (!GameModel.GetItemStatus(i))
                 continue;
             else
             {
+                Debug.Log("del");
                 GameModel.DeleteItem(i);
                 gameView.DisableSlot(i);
                 break;
             }
         }
+        for (int i = 0; i < GameModel.ITEM_SIZE; i++)
+            Debug.Log("Delitem :"+GameModel.GetItemStatus(i) );
+
     }
     //GameUI
     private void pauseGame()
     {
         IsPause = true;
         Time.timeScale = 0f;
-        //SoundController.instance.BgSoundStop();
+        SoundController.instance.BgSoundStop();
     }
 
     private void playGame()
     {
         IsPause = false;
         Time.timeScale = 1f;
-        //SoundController.instance.BgSoundRestart();
+        SoundController.instance.BgSoundRestart();
     }
     
     public void Pause()
