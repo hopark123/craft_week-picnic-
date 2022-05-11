@@ -133,6 +133,7 @@ public class PlayerControler : MonoBehaviour
         gameControler.RespawnMap();
         transform.position = respawnPoint.position;
         pModel.IsAlive = true;
+        SoundController.instance.BgSoundRestart();
     }
 
     private void Hit()
@@ -144,6 +145,7 @@ public class PlayerControler : MonoBehaviour
         pModel.IsAlive = false;
         jmpOrder = false;
         pView.Hit();
+        SoundController.instance.BgSoundStop();
         StartCoroutine(Respawn());
     }
 
