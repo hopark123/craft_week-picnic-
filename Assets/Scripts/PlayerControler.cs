@@ -32,6 +32,8 @@ public class PlayerControler : MonoBehaviour
     public AudioClip ItemClip;
     public AudioClip SlideClip;
     public AudioClip GoalClip;
+    public AudioClip DeadClip;
+
 
     void Awake()
     {
@@ -131,6 +133,7 @@ public class PlayerControler : MonoBehaviour
         gameControler.RespawnMap();
         transform.position = respawnPoint.position;
         pModel.IsAlive = true;
+        SoundController.instance.BgSoundRestart();
     }
 
     private void Hit()
@@ -138,9 +141,11 @@ public class PlayerControler : MonoBehaviour
         if (!pModel.IsAlive)
             return;
         gameControler.Dead();
+        SoundController.instance.SFXPlay("Dead", DeadClip);
         pModel.IsAlive = false;
         jmpOrder = false;
         pView.Hit();
+        SoundController.instance.BgSoundStop();
         StartCoroutine(Respawn());
     }
 
