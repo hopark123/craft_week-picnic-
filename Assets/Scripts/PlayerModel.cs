@@ -100,7 +100,7 @@ public class PlayerModel
 
     public bool Slide()
     {
-        if (IsAlive && IsGround)
+        if (IsAlive)
             return IsSlide = true;
         return false;
     }

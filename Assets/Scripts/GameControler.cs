@@ -53,14 +53,14 @@ public class GameControler : MonoBehaviour
     {
         IsPause = true;
         Time.timeScale = 0f;
-        SoundController.instance.BgSoundStop();
+        //SoundController.instance.BgSoundStop();
     }
 
     private void playGame()
     {
         IsPause = false;
         Time.timeScale = 1f;
-        SoundController.instance.BgSoundRestart();
+        //SoundController.instance.BgSoundRestart();
     }
     
     public void Pause()
