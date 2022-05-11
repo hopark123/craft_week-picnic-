@@ -522,11 +522,12 @@ MonoBehaviour:
   bgSound: {fileID: 711170877}
   bglist:
   - {fileID: 8300000, guid: bf24125690a294a22a73a11c038973c8, type: 3}
-  - {fileID: 8300000, guid: 595789410f1024f3ea5e8dac78efd059, type: 3}
+  - {fileID: 8300000, guid: b991c4461f1124e7d8594d5d271a0867, type: 3}
   - {fileID: 8300000, guid: 2517a0825c16b4c5ba75b2dd4c689008, type: 3}
   - {fileID: 8300000, guid: b85718d0266714fc1aa54882b361291b, type: 3}
   - {fileID: 8300000, guid: 05271ec2eda24468aa48d0f877d2a8ed, type: 3}
   - {fileID: 8300000, guid: 3f284b0f252dd4f319a78409c57bb064, type: 3}
+  - {fileID: 8300000, guid: 37535972c5a114fd8815390204672339, type: 3}
 --- !u!4 &711170876
 Transform:
   m_ObjectHideFlags: 0

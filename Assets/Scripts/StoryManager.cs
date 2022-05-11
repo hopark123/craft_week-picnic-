@@ -16,6 +16,9 @@ public class StoryManager : MonoBehaviour
     private bool skip;
     public AudioClip[] Clip;
 
+    //SceneStatus
+    private int sceneStatus;
+
     void Start()
     {
         skipMessage.SetActive(false);
@@ -35,23 +38,23 @@ public class StoryManager : MonoBehaviour
 
     IEnumerator CutScene()
     {
-        int i = 0;
+        sceneStatus = 0;
         do
         {
-            SoundController.instance.SFXPlay("clip" + i, Clip[i]);
-            cutScenes[i].SetActive(true);
+            SoundController.instance.SFXPlay("clip" + sceneStatus, Clip[sceneStatus]);
+            cutScenes[sceneStatus].SetActive(true);
 
-            if (i == 0)
+            if (sceneStatus == 0)
                 yield return new WaitForSecondsRealtime(3.5f);
-            else if (i == 2)
+            else if (sceneStatus == 2)
                 yield return new WaitForSecondsRealtime(4.0f);
-            else if (i == 3)
+            else if (sceneStatus == 3)
                 yield return new WaitForSecondsRealtime(1.8f);
             else
                 yield return new WaitForSecondsRealtime(2.8f);
-            i++;
+            sceneStatus++;
         }
-        while (i < cutScenes.Length);
+        while (sceneStatus < cutScenes.Length);
     }
 
     IEnumerator LoadScene()
@@ -65,7 +68,7 @@ public class StoryManager : MonoBehaviour
             yield return null;
             if (asyncOperation.progress >= 0.9f)
             {
-                if (!skipMessage.activeInHierarchy)
+                if (!skipMessage.activeInHierarchy && sceneStatus > 2)
                     skipMessage.SetActive(true);
                 if (skip || trigger.activeInHierarchy)
                     asyncOperation.allowSceneActivation = true;

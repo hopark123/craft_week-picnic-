@@ -32,18 +32,13 @@ public class GameControler : MonoBehaviour
         int i = Convert.ToInt32(obj.name);
         GameModel.EatItem(i);
         gameView.ActivateSlot(i);
-        for (int j = 0; j < GameModel.ITEM_SIZE; j++)
-            Debug.Log("eatitem :" + GameModel.GetItemStatus(j));
     }
 
     public void LostItem()
     {
         for (int i = 0; i < GameModel.ITEM_SIZE; i++)
         {
-            Debug.Log(i);
-            if (!GameModel.GetItemStatus(i))
-                continue;
-            else
+            if (GameModel.GetItemStatus(i) == true)
             {
                 Debug.Log("del");
                 GameModel.DeleteItem(i);
@@ -51,9 +46,6 @@ public class GameControler : MonoBehaviour
                 break;
             }
         }
-        for (int i = 0; i < GameModel.ITEM_SIZE; i++)
-            Debug.Log("Delitem :"+GameModel.GetItemStatus(i) );
-
     }
     //GameUI
     private void pauseGame()
@@ -149,7 +141,7 @@ public class GameControler : MonoBehaviour
             return;
         for (int i = 0; i < obstacles.transform.childCount; ++i)
             obstacles.transform.GetChild(i).gameObject.SetActive(true);
-        GameModel.ResetStageItem();
+        //GameModel.ResetStageItem();
     }
 
     private void OnApplicationPause(bool pause)

@@ -68,6 +68,8 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 8eb46dfa332c143a98291e97dbbb7ab3, type: 3}
     - {fileID: 2800000, guid: 5834dd104585e45af8d10318fd7a1bd8, type: 3}
     - {fileID: 2800000, guid: 17cf8694dc1b8457fb3faa560b8e03b5, type: 3}
+    - {fileID: 2800000, guid: 4a25425c23b7c49d7a435cfa83924d9b, type: 3}
+    - {fileID: 2800000, guid: f13714a115de748a489853fb89c2abd8, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -75,6 +77,7 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: 5834dd104585e45af8d10318fd7a1bd8, type: 3}
   - {fileID: 21300000, guid: f086e5b086ef74589a4d54062308f24f, type: 3}
+  - {fileID: 21300000, guid: f13714a115de748a489853fb89c2abd8, type: 3}
   - {fileID: 21300000, guid: 5ddc68121624542099cd8d4a1026de7a, type: 3}
   - {fileID: 21300000, guid: 511972438f18f43548c71e4b05084c5d, type: 3}
   - {fileID: 21300000, guid: 9fe803439cc4543be86ca5b8fcd44c0a, type: 3}
@@ -84,10 +87,12 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c915d8a8fc042455fa9a4b2fb1ded2c6, type: 3}
   - {fileID: 21300000, guid: 8eb46dfa332c143a98291e97dbbb7ab3, type: 3}
   - {fileID: 21300000, guid: 0ab25d6ba19284cb2960b55712354853, type: 3}
+  - {fileID: 21300000, guid: 4a25425c23b7c49d7a435cfa83924d9b, type: 3}
   - {fileID: 21300000, guid: d10873dfddba042929b126b0b94e7eb8, type: 3}
   m_PackedSpriteNamesToIndex:
   - count_death
   - button_jump
+  - button_mute
   - button_pause
   - button_slide
   - button_start
@@ -97,6 +102,7 @@ SpriteAtlas:
   - button_home
   - pauseButton_1
   - skip_button
+  - button_share
   - button_title
   m_RenderDataMap: {}
   m_Tag: ButtonUI
