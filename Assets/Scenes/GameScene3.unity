@@ -9095,6 +9095,7 @@ MonoBehaviour:
   ItemClip: {fileID: 8300000, guid: 90090e669f42b418a8d7e32187326341, type: 3}
   SlideClip: {fileID: 8300000, guid: 4405299ad764f446680bf2377d8adba7, type: 3}
   GoalClip: {fileID: 8300000, guid: 4731050cfac9842fa86034505795a34d, type: 3}
+  DeadClip: {fileID: 8300000, guid: ccb39777be64e4b3280bef39d4338f8c, type: 3}
 --- !u!114 &628182854
 MonoBehaviour:
   m_ObjectHideFlags: 0
