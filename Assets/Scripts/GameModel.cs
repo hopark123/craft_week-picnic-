@@ -24,7 +24,6 @@ public static class GameModel
     
 	public static void EatItem(int itemIdx)
     {
-        Debug.Log("eat" + itemIdx);
         Itemlst[StageNumber, itemIdx] = true;
     }
 

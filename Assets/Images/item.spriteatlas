@@ -86,7 +86,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: df8bb29b1034c4e2eb5d91e66ff313f5, type: 3}
   - {fileID: 21300000, guid: c2f25e2d22e76472fb7742e1cdddaa84, type: 3}
   - {fileID: 21300000, guid: b1d9a9de7315a4555b3fa466c3c1cf58, type: 3}
-  - {fileID: 21300000, guid: e475463f6c4a44c01a24835200399646, type: 3}
   m_PackedSpriteNamesToIndex:
   - item_flower_2
   - 003
@@ -100,7 +99,6 @@ SpriteAtlas:
   - 012
   - 005
   - 008
-  - 007
   m_RenderDataMap: {}
   m_Tag: item
   m_IsVariant: 0

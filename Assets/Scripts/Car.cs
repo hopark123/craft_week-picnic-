@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(EdgeCollider2D))]
+[RequireComponent(typeof(PolygonCollider2D))]
 public class Car : Obstacle
 {
     EdgeCollider2D col = null;
