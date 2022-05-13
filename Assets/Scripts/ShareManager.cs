@@ -17,18 +17,12 @@ public class ShareManager : MonoBehaviour
     }
     public AudioClip CaptureClip;
 
-    public void CaptureScreenForMobile(string fileName)
+    public void CaptureScreenClick()
     {
-        SoundController.instance.SFXPlay("Capture", CaptureClip);
-        uiCanvus.SetActive(false);
-        Texture2D texture = ScreenCapture.CaptureScreenshotAsTexture();
-
-        // do something with texture
-        string albumName = "BRUNCH";
         NativeGallery.Permission permission = NativeGallery.CheckPermission(NativeGallery.PermissionType.Write);
         blackScreen.gameObject.SetActive(true);
+        uiCanvus.SetActive(false);
         Screen.orientation = ScreenOrientation.Portrait;
-
         if (permission == NativeGallery.Permission.Denied)
         {
             if (NativeGallery.CanOpenSettings())
@@ -36,13 +30,32 @@ public class ShareManager : MonoBehaviour
                 NativeGallery.OpenSettings();
             }
         }
-        NativeGallery.SaveImageToGallery(texture, albumName, fileName, (success, path) =>
-        {
-            Debug.Log(success);
-            Debug.Log(path);
-        });
-        //Object.Destroy(texture);
-        StartCoroutine(ScreenPortrait(texture));
+        StartCoroutine(TakeScreenShotRoutine());
+    }
+
+    private IEnumerator TakeScreenShotRoutine()
+    {
+        yield return new WaitForEndOfFrame();
+
+        CaptureScreenForMobile("creftWeek");
+    }
+
+    public void CaptureScreenForMobile(string fileName)
+    {
+
+            GameObject obj1 = GameObject.Find("Slidesound");
+            SoundController.instance.SFXPlay("Capture", CaptureClip);
+            Texture2D texture = ScreenCapture.CaptureScreenshotAsTexture();
+
+            // do something with texture
+            string albumName = "BRUNCH";
+            //Object.Destroy(texture);
+            StartCoroutine(ScreenPortrait(texture));
+            NativeGallery.SaveImageToGallery(texture, albumName, fileName, (success, path) =>
+            {
+                Debug.Log(success);
+                Debug.Log(path);
+            });
     }
 
     private IEnumerator ScreenPortrait(Texture2D texture)
@@ -53,7 +66,6 @@ public class ShareManager : MonoBehaviour
         }
         StartCoroutine(TakeScreenshotAndShare(texture));
     }
-
 
 
     private IEnumerator TakeScreenshotAndShare(Texture2D ss)
