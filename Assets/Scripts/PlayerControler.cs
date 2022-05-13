@@ -26,6 +26,8 @@ public class PlayerControler : MonoBehaviour
     
     //private field
     private bool jmpOrder = false;
+    private Collision2D stayCollision;
+
 
     //Audio Clip
     public AudioClip JumpClip;
@@ -92,12 +94,13 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pModel.IsAlive)
-            Move();
     }
 
     void FixedUpdate()
     {
+        CollisionCheck();
+        if (pModel.IsAlive)
+            Move();
         if (pModel.IsAlive && jmpOrder)
         {
             Jump();
@@ -176,7 +179,9 @@ public class PlayerControler : MonoBehaviour
             pModel.IsSlide = false;
             pView.SlideEnd();
             //control
-            (col.size, col.offset) = pModel.PlayerBox;
+            col.size = pModel.PlayerBox.Item1;
+            col.offset = pModel.PlayerBox.Item2;
+            //(col.size, col.offset) = pModel.PlayerBox;
         }
     }
 
@@ -207,27 +212,40 @@ public class PlayerControler : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        ContactPoint2D contact;
-
-        for (int i = 0; i < collision.contactCount; i++)
-        {
-            contact = collision.contacts[i];
-            float projection = Vector2.Dot(Vector2.down, contact.normal);
-           
-            if (projection > -0.3f || projection < -1)// 땅의 윗부분에 충돌했는지
-            {
-                Hit();
-                break;
-            }
-        }
+        stayCollision = collision;
     }
+
+    bool CollisionCheck()
+    {
+        ContactPoint2D contact;
+        if (stayCollision == null || !pModel.IsAlive)
+            return (true);
+        for (int i = 0; i < stayCollision.contactCount; i++)
+        {
+            contact = stayCollision.contacts[i];
+            float projection = Vector2.Dot(Vector2.down, contact.normal);
+            //if (projection > -0.3f || projection < -1)// 땅의 윗부분에 충돌했는지
+            if ((contact.normal.x < 0 && contact.normal.y == 0) || contact.normal.y < 0)
+            {
+                Debug.Log("dead" + contact.normal);
+                    Hit();
+                stayCollision = null;
+                return (false);
+            }
+            Debug.Log("" + contact.normal);
+        }
+        return (true);
+    }
+
+
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (pModel.IsGround)
             pModel.IsGround = false;
+        stayCollision = null;
     }
-
+        
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("item"))

@@ -29,15 +29,17 @@ public class Car : Obstacle
 
     public override void Hit()
     {
-        base.Hit();
         if (animator.GetBool("hit") == false)
+        {
+            base.Hit();
             SoundController.instance.SFXPlay("Car", CarClip);
-        if (animator != null) {
-            animator.SetBool("hit", true);
+            if (animator != null) {
+                animator.SetBool("hit", true);
+            }
+            if (animator != null)
+                particle.SetActive(true);
+            StartCoroutine(Kill());
         }
-        if (animator != null)
-            particle.SetActive(true);
-        StartCoroutine(Kill());
     }
 
     IEnumerator Kill()
