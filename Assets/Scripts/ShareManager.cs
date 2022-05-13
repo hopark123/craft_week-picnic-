@@ -8,6 +8,8 @@ public class ShareManager : MonoBehaviour
 {
     [SerializeField]
     Image blackScreen;
+    [SerializeField]
+    GameObject uiCanvus;
 
     void Start()
     {
@@ -18,6 +20,7 @@ public class ShareManager : MonoBehaviour
     public void CaptureScreenForMobile(string fileName)
     {
         SoundController.instance.SFXPlay("Capture", CaptureClip);
+        uiCanvus.SetActive(false);
         Texture2D texture = ScreenCapture.CaptureScreenshotAsTexture();
 
         // do something with texture
@@ -67,8 +70,8 @@ public class ShareManager : MonoBehaviour
         //Destroy(ss);
 
         new NativeShare().AddFile(filePath)
-        //    //.SetSubject("Subject goes here").SetText("Hello world!").SetUrl("https://github.com/yasirkula/UnityNativeShare")
-        //    //.SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
+            .SetSubject("Subject goes here").SetText("Yard!!!").SetUrl("https://www.instagram.com/yard.kr/")
+            //    //.SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
             .Share();
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         blackScreen.gameObject.SetActive(false);
@@ -76,6 +79,7 @@ public class ShareManager : MonoBehaviour
         // Share on WhatsApp only, if installed (Android only)
         //if( NativeShare.TargetExists( "com.whatsapp" ) )
         //	new NativeShare().AddFile( filePath ).AddTarget( "com.whatsapp" ).Share();
+        uiCanvus.SetActive(true);
     }
 
 

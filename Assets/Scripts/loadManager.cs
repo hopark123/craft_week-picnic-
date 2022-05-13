@@ -8,10 +8,16 @@ public class loadManager : MonoBehaviour
 {
     [SerializeField]
     private Slider progressBar;
+    [SerializeField]
+    private Image canvus;
+    [SerializeField]
+    private Sprite endImage;
     
     // Start is called before the first frame update
     void Start()
     {
+        if (GameModel.sceneController.dest == "EndingScene")
+            canvus.sprite = endImage;
         StartCoroutine("LoadScenes");
     }
 
