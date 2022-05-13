@@ -74,9 +74,9 @@ public class PlayerModel
     public void InitPlayerBox(Vector2 size, Vector2 offset)
     {
         _standSize = size;
-        _standOffset = offset;
-        _slideSize = new Vector2(_standSize.x, _standSize.y / 3);
-        _slideOffset = new Vector2(_standOffset.x, _standOffset.y / 3);
+        _standOffset = new Vector2(0, size.y / 2);
+        _slideSize = new Vector2(_standSize.x, _standSize.y / 4);
+        _slideOffset = new Vector2(_standOffset.x, _standOffset.y / 4);
     }
 
     //private field

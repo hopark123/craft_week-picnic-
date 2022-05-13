@@ -40,7 +40,6 @@ public class GameControler : MonoBehaviour
         {
             if (GameModel.GetItemStatus(i) == true)
             {
-                Debug.Log("del");
                 GameModel.DeleteItem(i);
                 gameView.DisableSlot(i);
                 break;
