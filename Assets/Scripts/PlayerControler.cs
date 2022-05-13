@@ -98,7 +98,8 @@ public class PlayerControler : MonoBehaviour
 
     void FixedUpdate()
     {
-        CollisionCheck();
+        if (pModel.IsAlive)
+            CollisionCheck();
         if (pModel.IsAlive)
             Move();
         if (pModel.IsAlive && jmpOrder)
@@ -106,6 +107,7 @@ public class PlayerControler : MonoBehaviour
             Jump();
             jmpOrder = false;
         }
+        stayCollision = null;
     }
 
     void Move()
@@ -192,6 +194,7 @@ public class PlayerControler : MonoBehaviour
         if (collision.transform.CompareTag("Hit"))
         {
             Hit();
+            Debug.Log("EnterDeAd");
             return;
         }
         ContactPoint2D contact = collision.contacts[0];
@@ -218,21 +221,20 @@ public class PlayerControler : MonoBehaviour
     bool CollisionCheck()
     {
         ContactPoint2D contact;
-        if (stayCollision == null || !pModel.IsAlive)
+        if (stayCollision == null)
+            return (true);
+        if (!pModel.IsAlive)
             return (true);
         for (int i = 0; i < stayCollision.contactCount; i++)
         {
             contact = stayCollision.contacts[i];
             float projection = Vector2.Dot(Vector2.down, contact.normal);
-            //if (projection > -0.3f || projection < -1)// 땅의 윗부분에 충돌했는지
             if ((contact.normal.x < 0 && contact.normal.y == 0) || contact.normal.y < 0)
             {
-                Debug.Log("dead" + contact.normal);
-                    Hit();
+                Hit();
                 stayCollision = null;
                 return (false);
             }
-            Debug.Log("" + contact.normal);
         }
         return (true);
     }

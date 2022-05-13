@@ -7,21 +7,20 @@ using System.IO;
 public class ShareManager : MonoBehaviour
 {
     [SerializeField]
-    Image blackScreen;
+    GameObject uiCanvus1;
     [SerializeField]
-    GameObject uiCanvus;
+    GameObject uiCanvus2;
 
     void Start()
     {
-        blackScreen.gameObject.SetActive(false);
     }
     public AudioClip CaptureClip;
 
     public void CaptureScreenClick()
     {
         NativeGallery.Permission permission = NativeGallery.CheckPermission(NativeGallery.PermissionType.Write);
-        blackScreen.gameObject.SetActive(true);
-        uiCanvus.SetActive(false);
+        uiCanvus1.SetActive(false);
+        uiCanvus2.SetActive(false);
         Screen.orientation = ScreenOrientation.Portrait;
         if (permission == NativeGallery.Permission.Denied)
         {
@@ -86,12 +85,12 @@ public class ShareManager : MonoBehaviour
             //    //.SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
             .Share();
         Screen.orientation = ScreenOrientation.LandscapeLeft;
-        blackScreen.gameObject.SetActive(false);
         Object.Destroy(ss);
         // Share on WhatsApp only, if installed (Android only)
         //if( NativeShare.TargetExists( "com.whatsapp" ) )
         //	new NativeShare().AddFile( filePath ).AddTarget( "com.whatsapp" ).Share();
-        uiCanvus.SetActive(true);
+        uiCanvus1.SetActive(true);
+        uiCanvus2.SetActive(true);
     }
 
 

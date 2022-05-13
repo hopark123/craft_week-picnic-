@@ -2149,7 +2149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackScreen: {fileID: 1301211079}
-  uiCanvus: {fileID: 208196161}
+  uiCanvus1: {fileID: 78809450}
+  uiCanvus2: {fileID: 867107022}
   CaptureClip: {fileID: 8300000, guid: edf2ff147785348c284d9559b697a87c, type: 3}
 --- !u!82 &1955308556
 AudioSource:
