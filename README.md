@@ -17,8 +17,11 @@ Unity 2021.3.2f1 ver
 
 ## 📱 Target PlatForm
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+
 https://play.google.com/store/apps/details?id=com.suhonghopark.RoadToPicnic
+
 ![IOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
+
 https://apps.apple.com/kr/app/roadtopicnic/id1623865332
 
 ## 📅 워크플로우
