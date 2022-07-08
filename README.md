@@ -4,9 +4,11 @@
 <img width="400" src="https://user-images.githubusercontent.com/67721631/177944205-66483eb1-bef9-49b5-882b-717a594644b3.png">
 </p>
 
-
-
-## 😀 프로젝트 소개
+### 📹 OverView
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/67721631/177942166-17e27fec-8c22-4287-82eb-cc257e4a9c2c.gif">
+</p>
+Road to picinic은 공예주간 행사에서 진행한 Temporary Tard 2 Picnic 행사에서 사용된 플랫폼 러닝 게임입니다.
 
 ## 💻 사용언어
 ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)
@@ -28,7 +30,4 @@ https://apps.apple.com/kr/app/roadtopicnic/id1623865332
 [<img width="1038" alt="image" src="https://user-images.githubusercontent.com/67721631/177941302-f2e63f26-ea0b-4538-941c-47b254e1afd5.png">](https://docs.google.com/spreadsheets/d/1BIBo2KvlcvCFn4J_bjW3Uty7lMIiYP_iO0zZUHcNlJ0/edit#gid=0)
 
 
-📹 플레이 화면
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/67721631/177942166-17e27fec-8c22-4287-82eb-cc257e4a9c2c.gif">
-</p>
+
