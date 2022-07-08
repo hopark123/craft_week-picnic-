@@ -15,8 +15,11 @@
 ## 📜 Unity version
 Unity 2021.3.2f1 ver
 
-
-## ❗ 실행 에러 해결방법
+## 📱 Target PlatForm
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+https://play.google.com/store/apps/details?id=com.suhonghopark.RoadToPicnic
+![IOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
+https://apps.apple.com/kr/app/roadtopicnic/id1623865332
 
 ## 📅 워크플로우
 [<img width="1038" alt="image" src="https://user-images.githubusercontent.com/67721631/177941302-f2e63f26-ea0b-4538-941c-47b254e1afd5.png">]
